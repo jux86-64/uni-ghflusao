@@ -1,9 +1,16 @@
 
 public class Disciplina {
 	
+	// CONSTANTES
+	final public static int MAX_QTD_CARACTERES = 255;
+	
+	
+	// ATRIBUTOS
 	private int idDisciplina;
 	private String nome;
 	private float credito;
+	
+	
 	
 	public Disciplina(int idDisciplina, String nome, float credito) {
 		super();

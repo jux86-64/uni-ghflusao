@@ -1,13 +1,23 @@
+import jakarta.persistence.*;
+
 
 public class Turma {
+	// CONSTANTES
+	final public static int MAX_QTD_CARACTERES = 255;
 	
+	
+	// ATRIBUTOS 
 	private int idTurma;
 	private String turno;
 	// situacao pode ser um enum
 	private String situacao;
 	private String data_t;
-	private Disciplina idDisciplina;
 	private int idProfessor;
+	
+	
+	// ATRIBUTOS DE RELACIONAMENTO
+	@OneToMany(mappedBy="idDisciplina")
+	private Disciplina idDisciplina;
 	
 	public Turma(int idTurma, String turno, String situacao, String data_t, Disciplina idDisciplina, int idProfessor) {
 		super();

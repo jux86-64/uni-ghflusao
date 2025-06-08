@@ -1,14 +1,36 @@
+import jakarta.persistence.*;
 
+@Entity
 public class Aluno { 
-
+	
+	// CONSTANTES
+	final public static int TAM_CPF = 14;
+	final public static int MAX_QTD_CARACTERES = 255;
+	
+	
+	// ATRIBUTOS
+	@Id @GeneratedValue
     private int idAluno;
+	
+	@Column
     private int matricula;
+	@Column(length=TAM_CPF, unique=true)
     private String cpf;
+	@Column
     private String telefone;
+	@Column
     private String endereco;
+	@Column(length=MAX_QTD_CARACTERES)
     private int idade;
+	@Column(length=MAX_QTD_CARACTERES)
     private String nome;
-    private Turma idTurma;
+	
+	
+	
+	// ATRIBUTOS DE RELACIONAMENTO
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Turma idTurma;
+	
 
     public Aluno(int idAluno, int matricula, String cpf, String telefone, String endereco, int idade, String nome, Turma idTurma) {
         this.idAluno = idAluno; 
