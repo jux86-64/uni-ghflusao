@@ -4,17 +4,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import controller.CtrlIncluirAluno;
 import model.Turma;
-import javax.swing.JComboBox;
+import controller.aluno.CtrlAbstratoAluno;
 
-public class JanelaAluno extends JFrame {
+public class JanelaAluno extends JanelaAbstrata {
 
 	// COMPONENTES GRAFICOS
 	private static final long serialVersionUID = 1L;
@@ -27,11 +27,24 @@ public class JanelaAluno extends JFrame {
 	private JTextField tfEndereco;
 	private JTextField tfIdade;
 	private JComboBox cbIdTurma;
+	private JButton	btnProcurarPorMatricula;
+	private JButton	btnSair;
+	private JButton	btnCadastrarAluno;
+	
+	final private boolean 	habilitarProcura;
+	private boolean    		alunoSelecionado;
 
 	/**
 	 * Create the frame.
 	 */
-	public JanelaAluno() {
+	public JanelaAluno(CtrlAbstratoAluno ctrl, boolean habilitarProcura) {
+		super(ctrl);
+		this.alunoSelecionado = false;
+		this.habilitarProcura = habilitarProcura;
+		
+		
+		setTitle("ALUNO");
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 469);
 		contentPane = new JPanel();
@@ -97,9 +110,9 @@ public class JanelaAluno extends JFrame {
 		lblIdTurma.setBounds(244, 65, 55, 15);
 		contentPane.add(lblIdTurma);
 		
-		cbIdTurma = new JComboBox(Turma.obterPeloIdTurma());
+		/*cbIdTurma = new JComboBox(Turma.obterPeloIdTurma());
 		cbIdTurma.setBounds(301, 60, 83, 24);
-		contentPane.add(cbIdTurma);
+		contentPane.add(cbIdTurma); */
 		
 		tfEndereco = new JTextField();
 		tfEndereco.setColumns(10);
@@ -111,20 +124,33 @@ public class JanelaAluno extends JFrame {
 		contentPane.add(tfIdade);
 		tfIdade.setColumns(10);
 		
-		JButton btnCadastrarAluno = new JButton("Cadastrar");
+		btnCadastrarAluno = new JButton("Cadastrar");
 		btnCadastrarAluno.setBounds(223, 341, 98, 25);
 		contentPane.add(btnCadastrarAluno);
 		
-		JButton btnSair = new JButton("Sair");
+		btnSair = new JButton("Sair");
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CtrlIncluirAluno.finalizar();	
+				CtrlAbstratoAluno ctrl = (CtrlAbstratoAluno)getCtrl();
+				ctrl.finalizar();	
 			}
 		});
 		btnSair.setBounds(333, 341, 98, 25);
 		contentPane.add(btnSair);
 		
-		// TODO fazer o "habilitar busca" por MATRICULA
+		
+		if(habilitarProcura) {
+			btnProcurarPorMatricula = new JButton("Buscar por Matricula");
+			btnProcurarPorMatricula.setBounds(54, 341, 153, 25);
+			contentPane.add(btnProcurarPorMatricula);
+			btnProcurarPorMatricula.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					int matricula = Integer.parseInt(tfMatricula.getText());
+					CtrlAbstratoAluno ctrl = (CtrlAbstratoAluno)getCtrl();
+					ctrl.procurarAlunoPorMatricula(matricula);
+				}
+			});
+		}
 		
 		this.setVisible(true);
 	}
@@ -140,11 +166,10 @@ public class JanelaAluno extends JFrame {
 		this.tfNome.setText(nome);
 		this.cbIdTurma.setSelectedItem(idTurma);
 		
-		/* this.tfMatricula.setEnabled(false);
-		* if(this.habilitarProcura)
-		* 	this.btConsultarPelaMatricula.setEnabled(false);
-		* this.alunoSelecionado = true;
-		*/
+		this.tfMatricula.setEnabled(false);
+		if(this.habilitarProcura)
+		 	this.btnProcurarPorMatricula.setEnabled(false);
+		this.alunoSelecionado = true;
 		
 	}
 }

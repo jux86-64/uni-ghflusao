@@ -101,7 +101,7 @@ public class Aluno {
         this.nome = nome;
     }
 
-    public int getIdTurma() {
+    public Turma getIdTurma() {
         return idTurma;
     } 
     

@@ -33,7 +33,7 @@ public class JanelaPrincipal extends JanelaAbstrata {
 		btnCadastrarAluno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CtrlPrograma ctrl = (CtrlPrograma)getCtrl();
-				ctrl.iniciarIncluirAluno(); // TODO resolver no DAO
+				ctrl.iniciarIncluirAluno();
 			}
 		});
 		
