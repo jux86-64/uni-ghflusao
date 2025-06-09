@@ -1,3 +1,5 @@
+package model;
+
 import jakarta.persistence.*;
 
 
@@ -61,7 +63,7 @@ public class Turma {
 		this.data_t = data_t;
 	}
 
-	public int getIdDisciplina() {
+	public Disciplina getIdDisciplina() {
 		return idDisciplina;
 	}
 
@@ -76,6 +78,12 @@ public class Turma {
 	public void setIdProfessor(int idProfessor) throws Exception {
 		this.idProfessor = idProfessor;
 	}
+
+	@Override
+    public String toString() {
+        return "toString de turma :)";
+    }
 	
 	
+	// TODO criar metodo obterPeloIdTurma
 }

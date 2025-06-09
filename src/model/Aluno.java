@@ -1,3 +1,5 @@
+package model;
+
 import jakarta.persistence.*;
 
 @Entity
