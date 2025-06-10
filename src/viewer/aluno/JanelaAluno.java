@@ -1,4 +1,4 @@
-package viewer;
+package viewer.aluno;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import model.Turma;
+import viewer.JanelaAbstrata;
 import controller.aluno.CtrlAbstratoAluno;
 
 public class JanelaAluno extends JanelaAbstrata {
@@ -46,7 +47,7 @@ public class JanelaAluno extends JanelaAbstrata {
 		setTitle("ALUNO");
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 469);
+		setBounds(100, 100, 450, 412);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -54,7 +55,7 @@ public class JanelaAluno extends JanelaAbstrata {
 		contentPane.setLayout(null);
 		
 		tfId = new JTextField();
-		tfId.setBounds(73, 50, 104, 19);
+		tfId.setBounds(83, 50, 104, 19);
 		contentPane.add(tfId);
 		tfId.setColumns(10);
 		
@@ -76,12 +77,12 @@ public class JanelaAluno extends JanelaAbstrata {
 		contentPane.add(lblNome);
 		
 		tfNome = new JTextField();
-		tfNome.setBounds(73, 134, 248, 19);
+		tfNome.setBounds(83, 134, 248, 19);
 		contentPane.add(tfNome);
 		tfNome.setColumns(10);
 		
 		tfCpf = new JTextField();
-		tfCpf.setBounds(73, 175, 164, 19);
+		tfCpf.setBounds(83, 175, 164, 19);
 		contentPane.add(tfCpf);
 		tfCpf.setColumns(10);
 		
@@ -90,11 +91,11 @@ public class JanelaAluno extends JanelaAbstrata {
 		contentPane.add(lblCpf);
 		
 		JLabel lblTelefone = new JLabel("Telefone");
-		lblTelefone.setBounds(16, 211, 55, 29);
+		lblTelefone.setBounds(16, 216, 55, 29);
 		contentPane.add(lblTelefone);
 		
 		tfTelefone = new JTextField();
-		tfTelefone.setBounds(73, 216, 164, 19);
+		tfTelefone.setBounds(83, 221, 164, 19);
 		contentPane.add(tfTelefone);
 		tfTelefone.setColumns(10);
 		
@@ -103,7 +104,7 @@ public class JanelaAluno extends JanelaAbstrata {
 		contentPane.add(lblEndereo);
 		
 		JLabel lblIdade = new JLabel("Idade");
-		lblIdade.setBounds(16, 294, 55, 15);
+		lblIdade.setBounds(276, 177, 55, 15);
 		contentPane.add(lblIdade);
 		
 		JLabel lblIdTurma = new JLabel("Id Turma");
@@ -120,12 +121,12 @@ public class JanelaAluno extends JanelaAbstrata {
 		contentPane.add(tfEndereco);
 		
 		tfIdade = new JTextField();
-		tfIdade.setBounds(56, 292, 104, 19);
+		tfIdade.setBounds(315, 175, 104, 19);
 		contentPane.add(tfIdade);
 		tfIdade.setColumns(10);
 		
 		btnCadastrarAluno = new JButton("Cadastrar");
-		btnCadastrarAluno.setBounds(223, 341, 98, 25);
+		btnCadastrarAluno.setBounds(227, 299, 104, 45);
 		contentPane.add(btnCadastrarAluno);
 		
 		btnSair = new JButton("Sair");
@@ -135,7 +136,7 @@ public class JanelaAluno extends JanelaAbstrata {
 				ctrl.finalizar();	
 			}
 		});
-		btnSair.setBounds(333, 341, 98, 25);
+		btnSair.setBounds(340, 299, 98, 45);
 		contentPane.add(btnSair);
 		
 		

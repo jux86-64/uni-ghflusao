@@ -5,7 +5,7 @@ import controller.ICtrl;
 import model.Aluno;
 import model.Turma;
 import model.dao.DaoAluno;
-import viewer.JanelaAluno;
+import viewer.aluno.JanelaAluno;
 
 abstract public class CtrlAbstratoAluno extends CtrlAbstrato {
 	

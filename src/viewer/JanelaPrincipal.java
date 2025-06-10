@@ -37,8 +37,10 @@ public class JanelaPrincipal extends JanelaAbstrata {
 			}
 		});
 		
-		btnCadastrarAluno.setBounds(26, 0, 186, 62);
+		btnCadastrarAluno.setBounds(22, 35, 186, 62);
 		contentPane.add(btnCadastrarAluno);
+		
+		this.setVisible(true);
 	}
 
 }
