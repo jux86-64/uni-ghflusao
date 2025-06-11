@@ -1,14 +1,19 @@
 package model.dao;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
+import com.mysql.cj.Query;
+
+import controller.CtrlPrograma;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.NamedQuery;
 import model.Aluno;
 
+@NamedQuery(name = "Aluno.matricula", query = "SELECT a FROM Aluno a WHERE a.matricula = :matricula")
 public class DaoAluno {
 	
 	// ATRIBUTOS
-	private static Set<Aluno> conjAlunos = new HashSet<Aluno>();
+	private static EntityManager entityManager = CtrlPrograma.getEntityManager();
 	
 	
 	// METODOS
@@ -30,12 +35,12 @@ public class DaoAluno {
 		return null;
 	}
 	
-	public Aluno[] consultarTodos() {
-		int tamanho = DaoAluno.conjAlunos.size();
-		Aluno[] retorno = new Aluno[tamanho];
-		int i = 0;
-		for(Aluno a : DaoAluno.conjAlunos)
-			retorno[i++] = a;
+	public Aluno[] consultarAlunoTodos() {
+		jakarta.persistence.Query query = entityManager.createNamedQuery("Aluno.all");
+		List<Aluno> resultado  = query.getResultList();
+		Aluno[] retorno = new Aluno[resultado.size()];
+		for(int i = 0; i < resultado.size(); i++)
+			retorno[i] = resultado.get(i);
 		return retorno;
 	}
 }
