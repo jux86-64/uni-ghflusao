@@ -7,13 +7,16 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import model.Turma;
-import viewer.JanelaAbstrata;
 import controller.aluno.CtrlAbstratoAluno;
+import controller.aluno.CtrlIncluirAluno;
+import model.Turma;
+import model.dao.DaoTurma;
+import viewer.JanelaAbstrata;
 
 public class JanelaAluno extends JanelaAbstrata {
 
@@ -44,7 +47,7 @@ public class JanelaAluno extends JanelaAbstrata {
 		this.habilitarProcura = habilitarProcura;
 		
 		
-		setTitle("ALUNO");
+		setTitle("Cadastrar Aluno");
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 412);
@@ -111,9 +114,9 @@ public class JanelaAluno extends JanelaAbstrata {
 		lblIdTurma.setBounds(244, 65, 55, 15);
 		contentPane.add(lblIdTurma);
 		
-		/*cbIdTurma = new JComboBox(Turma.obterPeloIdTurma());
+		cbIdTurma = new JComboBox(DaoTurma.obterIdTurmaTodos());
 		cbIdTurma.setBounds(301, 60, 83, 24);
-		contentPane.add(cbIdTurma); */
+		contentPane.add(cbIdTurma); 
 		
 		tfEndereco = new JTextField();
 		tfEndereco.setColumns(10);
@@ -126,6 +129,74 @@ public class JanelaAluno extends JanelaAbstrata {
 		tfIdade.setColumns(10);
 		
 		btnCadastrarAluno = new JButton("Cadastrar");
+		btnCadastrarAluno.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int id = Integer.parseInt(tfId.getText());
+				int matricula = Integer.parseInt(tfMatricula.getText());
+				String cpf = tfCpf.getText();
+				String telefone = tfTelefone.getText();
+				String endereco = tfEndereco.getText();
+				int idade = Integer.parseInt(tfIdade.getText());
+				String nome = tfNome.getText();
+				
+				
+				String aux = tfId.getText();
+				try {
+					id = Integer.parseInt(tfId.getText());
+				} catch (NumberFormatException nfe) {
+					JOptionPane.showMessageDialog(null, "Valor ID Aluno inválido " + aux);
+					return;
+				}
+				
+				aux = tfMatricula.getText();
+				try {
+					matricula = Integer.parseInt(tfMatricula.getText());
+				} catch (NumberFormatException nfe) {
+					JOptionPane.showMessageDialog(null, "Valor Matricula Aluno inválido " + aux);
+					return;
+				}
+			
+				try {
+					cpf = tfCpf.getText();
+				} catch (NumberFormatException nfe) {
+					JOptionPane.showMessageDialog(null, "Valor CPF Aluno inválido " + cpf);
+					return;
+				}
+				
+				try {
+					telefone = tfTelefone.getText();
+				} catch (NumberFormatException nfe) {
+					JOptionPane.showMessageDialog(null, "Valor Telefone Aluno inválido " + telefone);
+					return;
+				}
+				
+				try {
+					endereco = tfEndereco.getText();
+				} catch (NumberFormatException nfe) {
+					JOptionPane.showMessageDialog(null, "Valor Endereço Aluno inválido " + endereco);
+					return;
+				}
+				
+				aux = tfIdade.getText();
+				try {
+					idade = Integer.parseInt(tfIdade.getText());
+				} catch (NumberFormatException nfe) {
+					JOptionPane.showMessageDialog(null, "Valor Telefone Aluno inválido " + aux);
+					return;
+				}
+				
+				try {
+					nome = tfNome.getText();
+				} catch (NumberFormatException nfe) {
+					JOptionPane.showMessageDialog(null, "Valor Nome Aluno inválido " + nome);
+					return;
+				}
+				
+				CtrlIncluirAluno ctrl = (CtrlIncluirAluno)getCtrl();
+				ctrl.efetuar(id, matricula, cpf, telefone, endereco, idade, nome, (Turma)cbIdTurma.getSelectedItem());
+			}
+		});
+		
 		btnCadastrarAluno.setBounds(227, 299, 104, 45);
 		contentPane.add(btnCadastrarAluno);
 		
@@ -171,6 +242,9 @@ public class JanelaAluno extends JanelaAbstrata {
 		if(this.habilitarProcura)
 		 	this.btnProcurarPorMatricula.setEnabled(false);
 		this.alunoSelecionado = true;
+		
+		/*this.cbIdTurma.addItem(idTurma);
+		this.cbIdTurma.setSelectedItem(idTurma);*/
 		
 	}
 }

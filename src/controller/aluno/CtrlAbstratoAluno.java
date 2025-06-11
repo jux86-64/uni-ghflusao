@@ -31,7 +31,7 @@ abstract public class CtrlAbstratoAluno extends CtrlAbstrato {
 		this.alunoSelecionado = dao.consultarPorMatricula(matricula);
 		
 		if(this.alunoSelecionado == null) {
-			this.meuViewer.notificar("Aluno NAO encontrado com matriicula informada");
+			this.meuViewer.notificar("Aluno NAO encontrado com matricula informada");
 		}
 		
 		this.meuViewer.atualizarDados(this.alunoSelecionado.getIdAluno(),

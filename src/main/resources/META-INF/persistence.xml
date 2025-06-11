@@ -1,0 +1,7 @@
+<persistence-unit name="uni-ghflusao" transaction-type="RESOURCE_LOCAL">
+    <properties>
+        <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:file:/caminho/banco/meubanco"/>
+        <property name="javax.persistence.jdbc.user" value="SA"/>
+        <property name="javax.persistence.jdbc.password" value=""/>
+    </properties>
+</persistence-unit>

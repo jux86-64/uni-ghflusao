@@ -1,6 +1,12 @@
 package model;
 
-import jakarta.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import model.validacao.ValidarAluno;
 
 @Entity
 public class Aluno { 
@@ -11,26 +17,26 @@ public class Aluno {
 	
 	
 	// ATRIBUTOS
-	@Id @GeneratedValue
+	// @Id @GeneratedValue
     private int idAluno;
 	
-	@Column
+	// @Column
     private int matricula;
-	@Column(length=TAM_CPF, unique=true)
+	// @Column(length=TAM_CPF, unique=true)
     private String cpf;
-	@Column
+	// @Column(length=MAX_QTD_CARACTERES)
     private String telefone;
-	@Column
+	// @Column(length=MAX_QTD_CARACTERES)
     private String endereco;
-	@Column(length=MAX_QTD_CARACTERES)
+	// @Column
     private int idade;
-	@Column(length=MAX_QTD_CARACTERES)
+	// @Column(length=MAX_QTD_CARACTERES)
     private String nome;
 	
 	
 	
 	// ATRIBUTOS DE RELACIONAMENTO
-	@ManyToOne(fetch = FetchType.LAZY)
+	// @ManyToOne(fetch = FetchType.LAZY)
 	private Turma idTurma;
 	
 
@@ -50,7 +56,8 @@ public class Aluno {
     }
 
     public void setIdAluno(int idAluno) throws Exception {
-        this.idAluno = idAluno;
+        ValidarAluno.validarIdAluno(idAluno);
+    	this.idAluno = idAluno;
     }
 
     public int getMatricula() {
@@ -58,7 +65,8 @@ public class Aluno {
     }
 
     public void setMatricula(int matricula) throws Exception {
-        this.matricula = matricula;
+        ValidarAluno.validarMatricula(matricula);
+    	this.matricula = matricula;
     }
 
     public String getCpf() { 
@@ -66,6 +74,7 @@ public class Aluno {
     }
 
     public void setCpf(String cpf) throws Exception {
+    	ValidarAluno.validarCpf(cpf);
         this.cpf = cpf;
     }
 
@@ -74,7 +83,8 @@ public class Aluno {
     }
 
     public void setTelefone(String telefone) throws Exception {
-        this.telefone = telefone;
+        ValidarAluno.validarTelefone(telefone);
+    	this.telefone = telefone;
     }
 
     public String getEndereco() { 
@@ -82,7 +92,8 @@ public class Aluno {
     }
 
     public void setEndereco(String endereco) throws Exception {
-        this.endereco = endereco;
+        ValidarAluno.validarEndereco(endereco);
+    	this.endereco = endereco;
     }
 
     public int getIdade() {
@@ -90,7 +101,8 @@ public class Aluno {
     }
 
     public void setIdade(int idade) throws Exception {
-        this.idade = idade;
+        ValidarAluno.validarIdade(idade);
+    	this.idade = idade;
     }
 
     public String getNome() {
@@ -98,7 +110,8 @@ public class Aluno {
     }
 
     public void setNome(String nome) throws Exception {
-        this.nome = nome;
+        ValidarAluno.validarNome(nome);
+    	this.nome = nome;
     }
 
     public Turma getIdTurma() {
@@ -106,6 +119,7 @@ public class Aluno {
     } 
     
     public void setIdTurma(Turma idTurma) throws Exception {
-        this.idTurma = idTurma;
+        ValidarAluno.validarIdTurma(idTurma);
+    	this.idTurma = idTurma;
     }
 }

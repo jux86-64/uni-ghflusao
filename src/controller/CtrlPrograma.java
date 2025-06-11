@@ -1,6 +1,9 @@
 package controller;
 
 import controller.aluno.CtrlIncluirAluno;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import viewer.JanelaPrincipal;
 
 public class CtrlPrograma extends CtrlAbstrato {
@@ -9,12 +12,19 @@ public class CtrlPrograma extends CtrlAbstrato {
 	private JanelaPrincipal janela;
 	private CtrlIncluirAluno ctrlIncluirAluno;
 	
+	// ATRIBUTOS CONEXÃO COM HSQLDB
+	private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("uni-ghflusao");
+	private static EntityManager        entityManager = entityManagerFactory.createEntityManager();
 	
 	// METODOS
 	public CtrlPrograma() {
 		super(null);
 		this.janela = new JanelaPrincipal(this);
 		this.ctrlIncluirAluno = null;
+	}
+	
+	public static EntityManager getEntityManager() { 
+		return CtrlPrograma.entityManager; 
 	}
 
 	public void iniciarIncluirAluno() {
