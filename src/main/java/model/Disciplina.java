@@ -1,5 +1,6 @@
 package main.java.model;
 
+import model.validacao.ValidarDisciplina;
 
 public class Disciplina {
 	
@@ -26,6 +27,7 @@ public class Disciplina {
 	}
 
 	public void setIdDisciplina(int idDisciplina) throws Exception {
+		ValidarDisciplina.validarIdDisciplina(idDisciplina);
 		this.idDisciplina = idDisciplina;
 	}
 
@@ -34,6 +36,7 @@ public class Disciplina {
 	}
 
 	public void setNome(String nome) throws Exception {
+		ValidarDisciplina.validarNome(nome);
 		this.nome = nome;
 	}
 
@@ -42,6 +45,7 @@ public class Disciplina {
 	}
 
 	public void setCredito(float credito) throws Exception {
+		ValidarDisciplina.validarCredito(credito);
 		this.credito = credito;
 	}
 	
