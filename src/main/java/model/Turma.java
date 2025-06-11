@@ -1,8 +1,9 @@
 package model;
 
 
-
 import javax.persistence.*;
+
+import model.validacao.ValidarTurma;
 
 
 public class Turma {
@@ -38,6 +39,7 @@ public class Turma {
 	}
 
 	public void setIdTurma(int idTurma) throws Exception {
+		ValidarTurma.validarIdTurma(idTurma);
 		this.idTurma = idTurma;
 	}
 
@@ -46,6 +48,7 @@ public class Turma {
 	}
 
 	public void setTurno(String turno) throws Exception {
+		ValidarTurma.validarTurno(turno);
 		this.turno = turno;
 	}
 
@@ -54,6 +57,7 @@ public class Turma {
 	}
 
 	public void setSituacao(String situacao) throws Exception {
+		ValidarTurma.validarSituacao(situacao);
 		this.situacao = situacao;
 	}
 
@@ -62,6 +66,7 @@ public class Turma {
 	}
 
 	public void setData_t(String data_t) throws Exception {
+		ValidarTurma.validarData(data_t);
 		this.data_t = data_t;
 	}
 
@@ -70,6 +75,7 @@ public class Turma {
 	}
 
 	public void setIdDisciplina(Disciplina idDisciplina) throws Exception {
+		ValidarTurma.validarIdDisciplina(idDisciplina);
 		this.idDisciplina = idDisciplina;
 	}
 
@@ -78,6 +84,7 @@ public class Turma {
 	}
 
 	public void setIdProfessor(int idProfessor) throws Exception {
+		ValidarTurma.validarIdProfessor(idProfessor);
 		this.idProfessor = idProfessor;
 	}
 
