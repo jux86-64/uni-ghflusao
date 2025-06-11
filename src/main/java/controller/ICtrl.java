@@ -1,4 +1,4 @@
-package main.java.controller;
+package controller;
 
 public interface ICtrl {
 	public abstract ICtrl getCtrlPai();

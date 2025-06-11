@@ -1,11 +1,11 @@
-package main.java.controller.aluno;
+package controller.aluno;
 
 
 
-import main.java.controller.CtrlAbstrato;
-import main.java.controller.CtrlPrograma;
-import main.java.model.dao.DaoTurma;
-import main.java.viewer.aluno.JanelaAluno;
+import controller.CtrlAbstrato;
+import controller.CtrlPrograma;
+import model.dao.DaoTurma;
+import viewer.aluno.JanelaAluno;
 import model.Aluno;
 import model.Turma;
 

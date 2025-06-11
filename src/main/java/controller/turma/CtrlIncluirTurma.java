@@ -1,13 +1,14 @@
-package main.java.controller.turma;
+package controller.turma;
 
 
 
-import main.java.controller.CtrlAbstrato;
-import main.java.controller.ICtrl;
-import main.java.model.Disciplina;
-import main.java.model.Turma;
-import main.java.model.dao.DaoTurma;
-import main.java.viewer.IViewer;
+import controller.CtrlAbstrato;
+import controller.ICtrl;
+import model.Disciplina;
+import model.Turma;
+import model.dao.DaoTurma;
+import viewer.IViewer;
+import viewer.turma.JanelaTurma;
 
 public class CtrlIncluirTurma extends CtrlAbstrato {
 	

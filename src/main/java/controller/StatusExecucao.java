@@ -1,4 +1,4 @@
-package main.java.controller;
+package controller;
 
 public enum StatusExecucao {
 	EM_EXECUCAO("Caso de Uso em Execução"),
