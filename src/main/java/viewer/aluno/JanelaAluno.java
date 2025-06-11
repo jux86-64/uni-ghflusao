@@ -1,4 +1,6 @@
-package viewer.aluno;
+package main.java.viewer.aluno;
+
+
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

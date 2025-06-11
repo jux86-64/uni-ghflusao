@@ -1,4 +1,6 @@
-package viewer;
+package main.java.viewer;
+
+
 
 import controller.ICtrl;
 

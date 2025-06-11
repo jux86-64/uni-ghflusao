@@ -1,4 +1,6 @@
-package model.validacao;
+package main.java.model.validacao;
+
+
 
 import java.util.regex.Pattern;
 

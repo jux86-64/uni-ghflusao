@@ -1,4 +1,6 @@
-package controller.aluno;
+package main.java.controller.aluno;
+
+
 
 import controller.CtrlAbstrato;
 import controller.ICtrl;

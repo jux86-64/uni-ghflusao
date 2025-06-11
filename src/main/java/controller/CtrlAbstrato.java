@@ -1,4 +1,4 @@
-package controller;
+package main.java.controller;
 
 abstract public class CtrlAbstrato implements ICtrl {
 	
