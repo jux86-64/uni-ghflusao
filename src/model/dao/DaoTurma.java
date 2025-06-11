@@ -16,7 +16,7 @@ public class DaoTurma {
 	private static EntityManager entityManager = CtrlPrograma.getEntityManager();
 	
 	public static Turma[] obterIdTurmaTodos() {
-		jakarta.persistence.Query query  =  entityManager.createQuery("SELECT idTurma FROM Turma");
+		javax.persistence.Query query  =  entityManager.createQuery("SELECT idTurma FROM Turma");
 		List<Turma> resultado = query.getResultList();
 		Turma[] retorno = new Turma[resultado.size()];
 		for(int i = 0; i < resultado.size(); i++)
