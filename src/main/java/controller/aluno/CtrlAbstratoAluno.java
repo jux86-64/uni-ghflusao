@@ -1,13 +1,11 @@
-package main.java.controller.aluno;
+/* package main.java.controller.aluno;
 
-
-
-import controller.CtrlAbstrato;
-import controller.ICtrl;
-import model.Aluno;
-import model.Turma;
-import model.dao.DaoAluno;
-import viewer.aluno.JanelaAluno;
+import main.java.controller.CtrlAbstrato;
+import main.java.controller.ICtrl;
+import main.java.model.Aluno;
+import main.java.model.Turma;
+import main.java.model.dao.DaoAluno;
+import main.java.viewer.aluno.JanelaAluno;
 
 abstract public class CtrlAbstratoAluno extends CtrlAbstrato {
 	
@@ -30,7 +28,7 @@ abstract public class CtrlAbstratoAluno extends CtrlAbstrato {
 	
 	public void procurarAlunoPorMatricula(int matricula) {
 		DaoAluno dao = new DaoAluno();
-		this.alunoSelecionado = dao.consultarPorMatricula(matricula);
+		this.alunoSelecionado = dao.consultarAlunoTodos();
 		
 		if(this.alunoSelecionado == null) {
 			this.meuViewer.notificar("Aluno NAO encontrado com matricula informada");
@@ -56,4 +54,4 @@ abstract public class CtrlAbstratoAluno extends CtrlAbstrato {
 	public Object getBemTangivel() {
 		return this.alunoSelecionado;
 	}
-}
+} */

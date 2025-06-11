@@ -1,4 +1,4 @@
-package main.java.model;
+package model;
 
 
 
@@ -86,6 +86,4 @@ public class Turma {
         return "toString de turma :)";
     }
 	
-	
-	// TODO criar metodo obterPeloIdTurma
 }

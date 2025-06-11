@@ -1,11 +1,14 @@
 package main.java.controller;
 
+import java.sql.Connection;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import controller.aluno.CtrlIncluirAluno;
+import main.java.controller.aluno.CtrlIncluirAluno;
 import main.java.viewer.JanelaPrincipal;
+
 
 public class CtrlPrograma extends CtrlAbstrato {
 	

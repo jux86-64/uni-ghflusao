@@ -2,10 +2,13 @@ package main.java.model.dao;
 
 import java.util.List;
 
-import com.mysql.cj.Query;
+import javax.persistence.EntityManager;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.PersistenceException;
+import javax.persistence.TypedQuery;
 
 import controller.CtrlPrograma;
-import javax.persistence.*;
 import model.Turma;
 
 @NamedQueries ({
@@ -15,7 +18,64 @@ public class DaoTurma {
 	
 	private static EntityManager entityManager = CtrlPrograma.getEntityManager();
 	
-	public static Turma[] obterIdTurmaTodos() {
+	public DaoTurma() {
+	}
+	
+	/*
+	 * @param t
+	 * @return
+	 * */
+	
+	public boolean incluir(Turma t) {
+		entityManager.getTransaction().begin();
+		
+		try {
+			entityManager.persist(t);
+		} catch (PersistenceException e) {
+			entityManager.getTransaction().rollback();
+			return false;
+		}
+		entityManager.getTransaction().commit();
+		return true;
+	}
+	
+	public boolean alterar(Turma t) {
+		entityManager.getTransaction().begin();
+
+		try {
+			entityManager.persist(t);
+		} catch (PersistenceException e) {
+			entityManager.getTransaction().rollback();
+			return false;
+		}
+		entityManager.getTransaction().commit();
+		return true;
+	}
+	
+	public boolean remover(Turma t) {
+		entityManager.getTransaction().begin();
+
+		try {
+			entityManager.persist(t);
+		} catch (PersistenceException e) {
+			entityManager.getTransaction().rollback();
+			return false;
+		}
+		entityManager.getTransaction().commit();
+		return true;
+	}
+	
+	public Turma consultarTurmaPorID(int idTurma) {
+		TypedQuery<Turma> query = entityManager.createQuery("SELECT t FROM Turma t WHERE t.idTurma = :idTurma", Turma.class);
+		query.setParameter("idTurma", idTurma);
+		List<Turma> resultado = query.getResultList();
+		if(resultado != null && resultado.size() > 0)
+			return resultado.get(0);
+		
+		return null;
+	}
+	
+	public Turma[] obterIdTurmaTodos() {
 		javax.persistence.Query query  =  entityManager.createQuery("SELECT idTurma FROM Turma");
 		List<Turma> resultado = query.getResultList();
 		Turma[] retorno = new Turma[resultado.size()];
