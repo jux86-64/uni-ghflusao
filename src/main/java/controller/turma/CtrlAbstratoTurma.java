@@ -3,10 +3,10 @@ package controller.turma;
 import controller.CtrlAbstrato;
 import controller.ICtrl;
 import model.Disciplina;
-import model.Situacao;
 import model.Turma;
-import model.Turno;
 import model.dao.DaoTurma;
+import model.enumerado.Situacao;
+import model.enumerado.Turno;
 import viewer.turma.JanelaIncluirTurma;
 
 abstract public class CtrlAbstratoTurma extends CtrlAbstrato{

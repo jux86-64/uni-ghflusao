@@ -1,4 +1,4 @@
-package model;
+package model.enumerado;
 
 public enum Turno {
 	MATUTINO("Matutino"),

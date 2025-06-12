@@ -8,9 +8,9 @@ import java.util.regex.Pattern;
 
 import model.Disciplina;
 import model.Professor;
-import model.Situacao;
 import model.Turma;
-import model.Turno;
+import model.enumerado.Situacao;
+import model.enumerado.Turno;
 
 public class ValidarTurma {
 
@@ -28,8 +28,8 @@ public class ValidarTurma {
 		validarTurno(turma.getTurno());
 		validarSituacao(turma.getSituacao());
 		validarData(turma.getData_t());
-		validarIdProfessor(turma.getIdProfessor());
-		validarIdDisciplina(turma.getIdDisciplina());
+		validarConjIdProfessor(turma.getConjIdProfessor());
+		validarConjIdDisciplina(turma.getConjIdDisciplina());
 	}
 
 	public static void validarIdTurma(int idTurma) throws Exception {

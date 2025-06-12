@@ -54,7 +54,7 @@ public class Aluno {
         this.endereco = endereco;
         this.idade = idade; 
         this.nome = nome;
-        this.setConjIdTurma(new HashSet<Turma>);
+        this.setConjIdTurma(new HashSet<Turma>());
     }
 
     public int getIdAluno() {
@@ -120,7 +120,11 @@ public class Aluno {
     	this.nome = nome;
     }
     
-    public void setConjIdTurma(Set<Turma> conjIdTurma) throws Exception {
+    public Set<Turma> getConjIdTurma() {
+		return conjIdTurma;
+	}
+
+	public void setConjIdTurma(Set<Turma> conjIdTurma) throws Exception {
         ValidarAluno.validarConjIdTurma(conjIdTurma);
     	this.conjIdTurma = conjIdTurma;
     }

@@ -16,9 +16,9 @@ import controller.aluno.CtrlAbstratoAluno;
 import controller.turma.CtrlAbstratoTurma;
 import controller.turma.CtrlIncluirTurma;
 import model.Disciplina;
-import model.Situacao;
-import model.Turno;
 import model.dao.DaoDisciplina;
+import model.enumerado.Situacao;
+import model.enumerado.Turno;
 import viewer.JanelaAbstrata;
 
 public class JanelaIncluirTurma extends JanelaAbstrata {

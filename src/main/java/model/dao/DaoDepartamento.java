@@ -1,6 +1,5 @@
 package model.dao;
 
-import controller.CtrlPrograma;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,22 +7,23 @@ import javax.persistence.NamedQuery;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 
-import model.Disciplina;
+import controller.CtrlPrograma;
+import model.Departamento;
 
-@NamedQuery(name="Disciplina.idDisciplina", query = "SELECT d FROM Disciplina d WHERE d.idDisciplina = :idDepartamento")
-public class DaoDisciplina {
-	
+@NamedQuery(name = "Departamento.idDepartamento", query = "SELECT d FROM Departamento d WHERE d.idDepartamento = :idDepartamento")
+public class DaoDepartamento {
+
 	private static EntityManager entityManager = CtrlPrograma.getEntityManager();
-	
+
 	// METODOS
-	public DaoDisciplina() {
+	public DaoDepartamento() {
 	}
-	
+
 	/*
 	 * @param d
-	 * @return 
-	 * */
-	public boolean incluir(Disciplina d) {		
+	 * @return
+	 */
+	public boolean incluir(Departamento d) {
 		entityManager.getTransaction().begin();
 		try {
 			entityManager.persist(d);
@@ -35,7 +35,7 @@ public class DaoDisciplina {
 		return true;
 	}
 
-	public boolean alterar(Disciplina d) {
+	public boolean alterar(Departamento d) {
 		entityManager.getTransaction().begin();
 		try {
 			entityManager.persist(d);
@@ -47,7 +47,7 @@ public class DaoDisciplina {
 		return true;
 	}
 
-	public boolean remover(Disciplina d) {
+	public boolean remover(Departamento d) {
 		entityManager.getTransaction().begin();
 		try {
 			entityManager.persist(d);
@@ -58,23 +58,22 @@ public class DaoDisciplina {
 		entityManager.getTransaction().commit();
 		return true;
 	}
-	
-	public Disciplina consultarDisciplinaPorID(int idDisciplina) {
-		Query query = entityManager.createQuery("SELECT d FROM Disciplina d");
-		query.setParameter("idDisciplina", idDisciplina);
-		List<Disciplina> resultado  = query.getResultList();
-		if(resultado != null && resultado.size() > 0)
+
+	public Departamento consultarDepartamentoPorID(int idDepartamento) {
+		Query query = entityManager.createQuery("SELECT d FROM Departamento d");
+		query.setParameter("idDepartamento", idDepartamento);
+		List<Departamento> resultado = query.getResultList();
+		if (resultado != null && resultado.size() > 0)
 			return resultado.get(0);
 		return null;
 	}
-	
-	public static Disciplina[] consultarDisciplinaTodos() {
-		Query query = entityManager.createNamedQuery("Disciplina.all");
-		List<Disciplina> resultado  = query.getResultList();
-		Disciplina[] retorno = new Disciplina[resultado.size()];
-		for(int i = 0; i < resultado.size(); i++)
+
+	public static Departamento[] consultarDepartamentoTodos() {
+		Query query = entityManager.createNamedQuery("Departamento.all");
+		List<Departamento> resultado = query.getResultList();
+		Departamento[] retorno = new Departamento[resultado.size()];
+		for (int i = 0; i < resultado.size(); i++)
 			retorno[i] = resultado.get(i);
 		return retorno;
 	}
-
 }

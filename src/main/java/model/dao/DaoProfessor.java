@@ -1,32 +1,34 @@
 package model.dao;
-
-import controller.CtrlPrograma;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NamedQuery;
 import javax.persistence.PersistenceException;
-import javax.persistence.Query;
 
-import model.Disciplina;
+import com.mysql.cj.Query;
 
-@NamedQuery(name="Disciplina.idDisciplina", query = "SELECT d FROM Disciplina d WHERE d.idDisciplina = :idDepartamento")
-public class DaoDisciplina {
+import controller.CtrlPrograma;
+import model.Professor;
+
+@NamedQuery(name = "Professor.matricula", query = "SELECT p FROM Professor p WHERE p.idProfessor = :idProfessor")
+public class DaoProfessor {
 	
+	// ATRIBUTOS
 	private static EntityManager entityManager = CtrlPrograma.getEntityManager();
 	
+	
 	// METODOS
-	public DaoDisciplina() {
+	public DaoProfessor() {
 	}
 	
 	/*
-	 * @param d
-	 * @return 
+	 * @param p
+	 * @return
 	 * */
-	public boolean incluir(Disciplina d) {		
+	public boolean incluir(Professor p) {		
 		entityManager.getTransaction().begin();
 		try {
-			entityManager.persist(d);
+			entityManager.persist(p);
 		} catch (PersistenceException e) {
 			entityManager.getTransaction().rollback();
 			return false;
@@ -35,10 +37,10 @@ public class DaoDisciplina {
 		return true;
 	}
 
-	public boolean alterar(Disciplina d) {
+	public boolean alterar(Professor p) {
 		entityManager.getTransaction().begin();
 		try {
-			entityManager.persist(d);
+			entityManager.persist(p);
 		} catch (PersistenceException e) {
 			entityManager.getTransaction().rollback();
 			return false;
@@ -47,10 +49,10 @@ public class DaoDisciplina {
 		return true;
 	}
 
-	public boolean remover(Disciplina d) {
+	public boolean remover(Professor p) {
 		entityManager.getTransaction().begin();
 		try {
-			entityManager.persist(d);
+			entityManager.persist(p);
 		} catch (PersistenceException e) {
 			entityManager.getTransaction().rollback();
 			return false;
@@ -59,22 +61,21 @@ public class DaoDisciplina {
 		return true;
 	}
 	
-	public Disciplina consultarDisciplinaPorID(int idDisciplina) {
-		Query query = entityManager.createQuery("SELECT d FROM Disciplina d");
-		query.setParameter("idDisciplina", idDisciplina);
-		List<Disciplina> resultado  = query.getResultList();
+	public Professor consultarProfessorPorID(int idProfessor) {
+		javax.persistence.Query query = entityManager.createQuery("SELECT p FROM Professor p");
+		query.setParameter("idProfessor", idProfessor);
+		List<Professor> resultado = query.getResultList();
 		if(resultado != null && resultado.size() > 0)
 			return resultado.get(0);
 		return null;
 	}
 	
-	public static Disciplina[] consultarDisciplinaTodos() {
-		Query query = entityManager.createNamedQuery("Disciplina.all");
-		List<Disciplina> resultado  = query.getResultList();
-		Disciplina[] retorno = new Disciplina[resultado.size()];
+	
+	public static Professor[] consultarProfessorTodos() {
+		javax.persistence.Query query = entityManager.createNamedQuery("Professor.all");
+		List<Professor> resultado  = query.getResultList();
+		Professor[] retorno = new Professor[resultado.size()];
 		for(int i = 0; i < resultado.size(); i++)
 			retorno[i] = resultado.get(i);
 		return retorno;
 	}
-
-}

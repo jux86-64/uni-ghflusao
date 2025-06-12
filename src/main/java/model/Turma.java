@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import model.enumerado.Situacao;
+import model.enumerado.Turno;
 import model.validacao.ValidarTurma;
 
 @Entity
@@ -80,10 +82,18 @@ public class Turma {
 		ValidarTurma.validarData(data_t);
 		this.data_t = data_t;
 	}
+	
+	public Set<Disciplina> getConjIdDisciplina() {
+		return conjIdDisciplina;
+	}
 
 	public void setConjIdDisciplina(Set<Disciplina> conjIdDisciplina) throws Exception {
 		ValidarTurma.validarConjIdDisciplina(conjIdDisciplina);
 		this.conjIdDisciplina = conjIdDisciplina;
+	}
+	
+	public Set<Professor> getConjIdProfessor() {
+		return conjIdProfessor;
 	}
 
 	public void setConjIdProfessor(Set<Professor> conjIdProfessor) throws Exception {

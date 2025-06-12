@@ -30,7 +30,7 @@ public class ValidarAluno {
 		validarEndereco(aluno.getEndereco());
 		validarIdade(aluno.getIdade());
 		validarNome(aluno.getNome());
-		validarIdTurma(aluno.getIdTurma());
+		validarConjIdTurma(aluno.getConjIdTurma());
 	}
 
 	public static void validarIdAluno(int idAluno) throws Exception {
