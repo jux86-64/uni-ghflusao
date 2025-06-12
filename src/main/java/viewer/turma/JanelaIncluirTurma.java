@@ -7,12 +7,14 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import controller.aluno.CtrlAbstratoAluno;
 import controller.turma.CtrlAbstratoTurma;
+import controller.turma.CtrlIncluirTurma;
 import model.Disciplina;
 import model.Situacao;
 import model.Turno;
@@ -23,12 +25,12 @@ public class JanelaIncluirTurma extends JanelaAbstrata {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField tfIdTurma;
+	private JTextField tfId;
 	private JTextField tfData;
-	private JComboBox 		cbTurno;
-	private JComboBox 		cbSituacao;
-	private JComboBox 		cbIdDisciplina;
-	private JComboBox 		cbIdProfessor;
+	private JComboBox cbTurno;
+	private JComboBox cbSituacao;
+	private JComboBox cbIdDisciplina;
+	private JComboBox cbIdProfessor;
 	
 	final private boolean 	habilitarProcura;
 	private boolean    		turmaSelecionado;
@@ -52,10 +54,10 @@ public class JanelaIncluirTurma extends JanelaAbstrata {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		tfIdTurma = new JTextField();
-		tfIdTurma.setBounds(142, 62, 104, 19);
-		contentPane.add(tfIdTurma);
-		tfIdTurma.setColumns(10);
+		tfId = new JTextField();
+		tfId.setBounds(142, 62, 104, 19);
+		contentPane.add(tfId);
+		tfId.setColumns(10);
 		
 		cbTurno = new JComboBox(Turno.obterTodos());
 		cbTurno.setBounds(142, 93, 104, 24);
@@ -105,6 +107,24 @@ public class JanelaIncluirTurma extends JanelaAbstrata {
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int id;
+				Turno turno = (Turno)cbTurno.getSelectedItem();
+				Situacao situacao = (Situacao)cbSituacao.getSelectedItem();
+				String data_t = tfData.getText();
+				Disciplina idDisciplina = (Disciplina)cbIdDisciplina.getSelectedItem();
+				Professor idProfessor = (Professor)cbIdProfessor.getSelectedItem();
+				
+				
+				String aux = tfId.getText();
+				try {
+					id =Integer.parseInt(aux);
+				} catch(NumberFormatException nfe) {
+					JOptionPane.showMessageDialog(null, "ID Inválido: " + aux);
+					return;
+				}
+				
+				CtrlIncluirTurma ctrl = (CtrlIncluirTurma)getCtrl();
+				ctrl.efetuar(id, turno, situacao, data_t, idDisciplina, idProfessor);
 				
 			}
 		});
@@ -126,7 +146,7 @@ public class JanelaIncluirTurma extends JanelaAbstrata {
 	
 	public void atualizarDados(int idTurma, Turno turno, Situacao situacao, String data_t,
 								Disciplina idDisciplina, int idProfessor) {
-		this.tfIdTurma.setText(Integer.toString(idTurma));
+		this.tfId.setText(Integer.toString(idTurma));
 		this.cbTurno.setSelectedItem(turno);
 		this.cbSituacao.setSelectedItem(situacao);
 		this.cbIdDisciplina.setSelectedItem(idDisciplina);

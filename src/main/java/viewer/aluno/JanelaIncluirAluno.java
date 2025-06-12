@@ -133,18 +133,18 @@ public class JanelaIncluirAluno extends JanelaAbstrata {
 		btnCadastrarAluno = new JButton("Cadastrar");
 		btnCadastrarAluno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int id = Integer.parseInt(tfId.getText());
-				int matricula = Integer.parseInt(tfMatricula.getText());
+				int id;
+				int matricula;
 				String cpf = tfCpf.getText();
 				String telefone = tfTelefone.getText();
 				String endereco = tfEndereco.getText();
-				int idade = Integer.parseInt(tfIdade.getText());
+				int idade; 
 				String nome = tfNome.getText();
 				
 				
 				String aux = tfId.getText();
 				try {
-					id = Integer.parseInt(tfId.getText());
+					id = Integer.parseInt(aux);
 				} catch (NumberFormatException nfe) {
 					JOptionPane.showMessageDialog(null, "Valor ID Aluno inválido " + aux);
 					return;
@@ -152,47 +152,20 @@ public class JanelaIncluirAluno extends JanelaAbstrata {
 				
 				aux = tfMatricula.getText();
 				try {
-					matricula = Integer.parseInt(tfMatricula.getText());
+					matricula = Integer.parseInt(aux);
 				} catch (NumberFormatException nfe) {
 					JOptionPane.showMessageDialog(null, "Valor Matricula Aluno inválido " + aux);
-					return;
-				}
-			
-				try {
-					cpf = tfCpf.getText();
-				} catch (NumberFormatException nfe) {
-					JOptionPane.showMessageDialog(null, "Valor CPF Aluno inválido " + cpf);
-					return;
-				}
-				
-				try {
-					telefone = tfTelefone.getText();
-				} catch (NumberFormatException nfe) {
-					JOptionPane.showMessageDialog(null, "Valor Telefone Aluno inválido " + telefone);
-					return;
-				}
-				
-				try {
-					endereco = tfEndereco.getText();
-				} catch (NumberFormatException nfe) {
-					JOptionPane.showMessageDialog(null, "Valor Endereço Aluno inválido " + endereco);
 					return;
 				}
 				
 				aux = tfIdade.getText();
 				try {
-					idade = Integer.parseInt(tfIdade.getText());
+					idade = Integer.parseInt(aux);
 				} catch (NumberFormatException nfe) {
-					JOptionPane.showMessageDialog(null, "Valor Telefone Aluno inválido " + aux);
+					JOptionPane.showMessageDialog(null, "Valor Idade Aluno inválido " + aux);
 					return;
 				}
 				
-				try {
-					nome = tfNome.getText();
-				} catch (NumberFormatException nfe) {
-					JOptionPane.showMessageDialog(null, "Valor Nome Aluno inválido " + nome);
-					return;
-				}
 				
 				CtrlIncluirAluno ctrl = (CtrlIncluirAluno)getCtrl();
 				ctrl.efetuar(id, matricula, cpf, telefone, endereco, idade, nome, (Turma)cbIdTurma.getSelectedItem());
