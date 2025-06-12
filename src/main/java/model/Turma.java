@@ -37,7 +37,7 @@ public class Turma {
 	@OneToMany(mappedBy="idProfessor")
 	private Set<Professor> conjIdProfessor;
 	
-	public Turma(int idTurma, Turno turno, Situacao situacao, String data_t) throws Exception {
+	public Turma(int idTurma, Turno turno, Situacao situacao, String data_t, Disciplina idDisciplina, Professor idProfessor) throws Exception {
 		super();
 		this.idTurma = idTurma;
 		this.turno = turno;

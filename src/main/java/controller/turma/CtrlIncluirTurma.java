@@ -4,6 +4,7 @@ package controller.turma;
 
 import controller.ICtrl;
 import model.Disciplina;
+import model.Professor;
 import model.Turma;
 import model.dao.DaoTurma;
 import model.enumerado.Situacao;
@@ -21,8 +22,18 @@ public class CtrlIncluirTurma extends CtrlAbstratoTurma {
 	
 	@Override
 	public void efetuar(int idTurma, Turno turno, Situacao situacao, String data_t, Disciplina idDisciplina,
-			int idProfessor) {
+			Professor idProfessor) {
 		try {
+			if (idDisciplina == null) {
+				this.meuViewer.notificar("Você ainda não definiu o disciplina");
+				return;
+			}
+			
+			if (idProfessor == null) {
+				this.meuViewer.notificar("Você ainda não definiu o correntista");
+				return;
+			}
+			
 			this.turmaCriada = new Turma(idTurma,turno,situacao,data_t,idDisciplina,idProfessor);
 		} catch (Exception e1) {
 			this.meuViewer.notificar("Erro: " + e1);

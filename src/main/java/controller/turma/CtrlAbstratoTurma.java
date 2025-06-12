@@ -3,6 +3,7 @@ package controller.turma;
 import controller.CtrlAbstrato;
 import controller.ICtrl;
 import model.Disciplina;
+import model.Professor;
 import model.Turma;
 import model.dao.DaoTurma;
 import model.enumerado.Situacao;
@@ -38,15 +39,15 @@ abstract public class CtrlAbstratoTurma extends CtrlAbstrato{
 		
 		this.meuViewer.atualizarDados(this.turmaCriada.getIdTurma(),
 									  this.turmaCriada.getData_t(),
-									  this.turmaCriada.getIdDisciplina(),
-									  this.turmaCriada.getIdProfessor(),
+									  this.turmaCriada.getConjIdDisciplina(),
+									  this.turmaCriada.getConjIdProfessor(),
 									  this.turmaCriada.getIdTurma(),
 									  this.turmaCriada.getSituacao(),
 									  this.turmaCriada.getTurno());
 	}
 	
 	abstract public void efetuar(int idTurma, Turno turno, Situacao situacao, String data_t, Disciplina idDisciplina,
-			int idProfessor);
+			Professor idProfessor);
 	
 	public void finalizar() {
 		this.meuViewer.finalizar();

@@ -16,6 +16,7 @@ import controller.aluno.CtrlAbstratoAluno;
 import controller.turma.CtrlAbstratoTurma;
 import controller.turma.CtrlIncluirTurma;
 import model.Disciplina;
+import model.Professor;
 import model.dao.DaoDisciplina;
 import model.enumerado.Situacao;
 import model.enumerado.Turno;
@@ -144,13 +145,13 @@ public class JanelaIncluirTurma extends JanelaAbstrata {
 		this.setVisible(true);
 	}
 	
-	public void atualizarDados(int idTurma, Turno turno, Situacao situacao, String data_t,
-								Disciplina idDisciplina, int idProfessor) {
-		this.tfId.setText(Integer.toString(idTurma));
-		this.cbTurno.setSelectedItem(turno);
-		this.cbSituacao.setSelectedItem(situacao);
-		this.cbIdDisciplina.setSelectedItem(idDisciplina);
-		this.cbIdProfessor.setSelectedItem(idProfessor);
-		
+	public void atualizarDisciplina(Disciplina nova) {
+		this.cbIdDisciplina.addItem(nova);
+		this.cbIdDisciplina.setSelectedItem(nova);
+	}
+	
+	public void atualizarProfessor(Professor novo) {
+		this.cbIdProfessor.addItem(novo);
+		this.cbIdDisciplina.setSelectedItem(novo);
 	}
 }

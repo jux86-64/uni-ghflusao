@@ -5,6 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import controller.aluno.CtrlIncluirAluno;
+import controller.turma.CtrlIncluirTurma;
 import viewer.JanelaPrincipal;
 
 
@@ -13,6 +14,8 @@ public class CtrlPrograma extends CtrlAbstrato {
 	// ATRIBUTOS DE RELACIONAMENTO
 	private JanelaPrincipal janela;
 	private CtrlIncluirAluno ctrlIncluirAluno;
+	private CtrlIncluirTurma ctrlIncluirTurma;
+	private CtrlIncluirDisciplina ctrlIncluirDisciplina;
 	
 	// ATRIBUTOS CONEXÃO COM HSQLDB
 	private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("uni-ghflusao");
