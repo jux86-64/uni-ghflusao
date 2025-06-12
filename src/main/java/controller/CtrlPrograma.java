@@ -1,7 +1,5 @@
 package controller;
 
-import java.sql.Connection;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -25,18 +23,41 @@ public class CtrlPrograma extends CtrlAbstrato {
 		super(null);
 		this.janela = new JanelaPrincipal(this);
 		this.ctrlIncluirAluno = null;
+		this.ctrlIncluirTurma = null;
+		this.ctrlIncluirDisciplina = null;
 	}
 	
 	public static EntityManager getEntityManager() { 
 		return CtrlPrograma.entityManager; 
 	}
 
+	// METODOS DE INCLUSAO
 	public void iniciarIncluirAluno() {
 		if (this.ctrlIncluirAluno == null)
 			this.ctrlIncluirAluno = new CtrlIncluirAluno(this);
 		else 
 			this.janela.notificar("Você já iniciou a funcionalidade de Incluir Aluno");
 	}
+	
+	public void iniciarIncluirTurma() {
+		if (this.ctrlIncluirTurma == null)
+			this.ctrlIncluirTurma = new CtrlIncluirTurma(this);
+		else
+			this.janela.notificar("Você já iniciou a funcionalidade de Incluir Turma");
+	}
+	
+	public void iniciarIncluirDisciplina() {
+		if (this.ctrlIncluirDisciplina == null)
+			this.ctrlIncluirDisciplina = new CtrlIncluirDisciplina(this);
+		else
+			this.janela.notificar("Você já iniciou a funcionalidade de Incluir Disciplina");
+	}
+	
+	// METODOS DE ALTERACAO
+	
+	
+	// METODOS DE REMOCAO
+	
 	
 	
 	@Override
