@@ -7,12 +7,12 @@ import controller.turma.CtrlIncluirTurma;
 import model.Aluno;
 import model.Turma;
 import model.dao.DaoTurma;
-import viewer.aluno.JanelaAluno;
+import viewer.aluno.JanelaIncluirAluno;
 
 public class CtrlIncluirAluno extends CtrlAbstratoAluno {
 	
 	// ATRIBUTOS
-	private JanelaAluno janela;
+	private JanelaIncluirAluno janela;
 	private Aluno alunoCriado;
 	
 	private CtrlIncluirTurma ctrlIncluirTurma;

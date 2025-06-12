@@ -75,7 +75,7 @@ public class DaoTurma {
 		return null;
 	}
 	
-	public Turma[] obterIdTurmaTodos() {
+	public static Turma[] obterIdTurmaTodos() {
 		javax.persistence.Query query  =  entityManager.createQuery("SELECT idTurma FROM Turma");
 		List<Turma> resultado = query.getResultList();
 		Turma[] retorno = new Turma[resultado.size()];

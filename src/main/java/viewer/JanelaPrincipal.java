@@ -29,18 +29,24 @@ public class JanelaPrincipal extends JanelaAbstrata {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnCadastrarAluno = new JButton("Cadastrar Aluno");
-		btnCadastrarAluno.addActionListener(new ActionListener() {
+		JButton btnAluno = new JButton(" Aluno");
+		btnAluno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CtrlPrograma ctrl = (CtrlPrograma)getCtrl();
-				ctrl.iniciarIncluirAluno();
 			}
 		});
 		
-		btnCadastrarAluno.setBounds(22, 35, 186, 62);
-		contentPane.add(btnCadastrarAluno);
+		btnAluno.setBounds(37, 35, 186, 62);
+		contentPane.add(btnAluno);
+		
+		JButton btnTurma = new JButton("Turma");
+		btnTurma.setBounds(235, 35, 186, 62);
+		contentPane.add(btnTurma);
+		
+		JButton btnDisciplina = new JButton("Disciplina");
+		btnDisciplina.setBounds(37, 109, 186, 62);
+		contentPane.add(btnDisciplina);
 		
 		this.setVisible(true);
 	}
-
 }

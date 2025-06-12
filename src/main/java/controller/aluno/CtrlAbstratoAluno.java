@@ -5,12 +5,12 @@ import controller.ICtrl;
 import model.Aluno;
 import model.Turma;
 import model.dao.DaoAluno;
-import viewer.aluno.JanelaAluno;
+import viewer.aluno.JanelaIncluirAluno;
 
 abstract public class CtrlAbstratoAluno extends CtrlAbstrato {
 	
 	// ATRIBUTOS
-	protected JanelaAluno meuViewer;
+	protected JanelaIncluirAluno meuViewer;
 	protected Aluno alunoCriado;
 	final protected String operacao;
 	
@@ -19,7 +19,7 @@ abstract public class CtrlAbstratoAluno extends CtrlAbstrato {
 		super(c);
 		this.alunoCriado = null;
 		this.operacao = operacao;
-		this.meuViewer = new JanelaAluno(this, habilitarProcura);
+		this.meuViewer = new JanelaIncluirAluno(this, habilitarProcura);
 	}
 	
 	public String getOperacao() {
