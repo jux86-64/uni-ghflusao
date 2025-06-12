@@ -1,36 +1,48 @@
 package model;
 
 
-import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import model.validacao.ValidarTurma;
 
-
+@Entity
 public class Turma {
 	// CONSTANTES
 	final public static int MAX_QTD_CARACTERES = 255;
 	
 	
 	// ATRIBUTOS 
+	@Id @GeneratedValue
 	private int idTurma;
+	@Column
 	private Turno turno;
+	@Column
 	private Situacao situacao;
+	@Column
 	private String data_t;
-	private int idProfessor;
 	
 	
 	// ATRIBUTOS DE RELACIONAMENTO
 	@OneToMany(mappedBy="idDisciplina")
-	private Disciplina idDisciplina;
+	private Set<Disciplina> conjIdDisciplina;
+	@OneToMany(mappedBy="idProfessor")
+	private Set<Professor> conjIdProfessor;
 	
-	public Turma(int idTurma, Turno turno, Situacao situacao, String data_t, Disciplina idDisciplina, int idProfessor) {
+	public Turma(int idTurma, Turno turno, Situacao situacao, String data_t) throws Exception {
 		super();
 		this.idTurma = idTurma;
 		this.turno = turno;
 		this.situacao = situacao;
 		this.data_t = data_t;
-		this.idDisciplina = idDisciplina;
-		this.idProfessor = idProfessor;
+		this.setConjIdDisciplina(new HashSet<Disciplina>());
+		this.setConjIdProfessor(new HashSet<Professor>());
 	}
 
 	public int getIdTurma() {
@@ -42,20 +54,20 @@ public class Turma {
 		this.idTurma = idTurma;
 	}
 
-	public String getTurno() {
+	public Turno getTurno() {
 		return turno;
 	}
 
-	public void setTurno(String turno) throws Exception {
+	public void setTurno(Turno turno) throws Exception {
 		ValidarTurma.validarTurno(turno);
 		this.turno = turno;
 	}
 
-	public String getSituacao() {
+	public Situacao getSituacao() {
 		return situacao;
 	}
 
-	public void setSituacao(String situacao) throws Exception {
+	public void setSituacao(Situacao situacao) throws Exception {
 		ValidarTurma.validarSituacao(situacao);
 		this.situacao = situacao;
 	}
@@ -69,22 +81,14 @@ public class Turma {
 		this.data_t = data_t;
 	}
 
-	public Disciplina getIdDisciplina() {
-		return idDisciplina;
+	public void setConjIdDisciplina(Set<Disciplina> conjIdDisciplina) throws Exception {
+		ValidarTurma.validarConjIdDisciplina(conjIdDisciplina);
+		this.conjIdDisciplina = conjIdDisciplina;
 	}
 
-	public void setIdDisciplina(Disciplina idDisciplina) throws Exception {
-		ValidarTurma.validarIdDisciplina(idDisciplina);
-		this.idDisciplina = idDisciplina;
-	}
-
-	public int getIdProfessor() {
-		return idProfessor;
-	}
-
-	public void setIdProfessor(int idProfessor) throws Exception {
-		ValidarTurma.validarIdProfessor(idProfessor);
-		this.idProfessor = idProfessor;
+	public void setConjIdProfessor(Set<Professor> conjIdProfessor) throws Exception {
+		ValidarTurma.validarConjIdProfessor(conjIdProfessor);
+		this.conjIdProfessor = conjIdProfessor;
 	}
 
 	@Override

@@ -2,12 +2,16 @@ package model;
 
 
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
 import model.validacao.ValidarAluno;
 
 @Entity
@@ -19,30 +23,30 @@ public class Aluno {
 	
 	
 	// ATRIBUTOS
-	// @Id @GeneratedValue
+	@Id @GeneratedValue
     private int idAluno;
 	
-	// @Column
+	@Column
     private int matricula;
-	// @Column(length=TAM_CPF, unique=true)
+	@Column(length=TAM_CPF, unique=true)
     private String cpf;
-	// @Column(length=MAX_QTD_CARACTERES)
+	@Column(length=MAX_QTD_CARACTERES)
     private String telefone;
-	// @Column(length=MAX_QTD_CARACTERES)
+	@Column(length=MAX_QTD_CARACTERES)
     private String endereco;
-	// @Column
+	@Column
     private int idade;
-	// @Column(length=MAX_QTD_CARACTERES)
+	@Column(length=MAX_QTD_CARACTERES)
     private String nome;
 	
 	
 	
 	// ATRIBUTOS DE RELACIONAMENTO
-	// @ManyToOne(fetch = FetchType.LAZY)
-	private Turma idTurma;
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Set<Turma> conjIdTurma;
 	
 
-    public Aluno(int idAluno, int matricula, String cpf, String telefone, String endereco, int idade, String nome, Turma idTurma) {
+    public Aluno(int idAluno, int matricula, String cpf, String telefone, String endereco, int idade, String nome)  throws Exception{
         this.idAluno = idAluno; 
         this.matricula = matricula;
         this.cpf = cpf;
@@ -50,7 +54,7 @@ public class Aluno {
         this.endereco = endereco;
         this.idade = idade; 
         this.nome = nome;
-        this.idTurma = idTurma;
+        this.setConjIdTurma(new HashSet<Turma>);
     }
 
     public int getIdAluno() {
@@ -115,13 +119,9 @@ public class Aluno {
         ValidarAluno.validarNome(nome);
     	this.nome = nome;
     }
-
-    public Turma getIdTurma() {
-        return idTurma;
-    } 
     
-    public void setIdTurma(Turma idTurma) throws Exception {
-        ValidarAluno.validarIdTurma(idTurma);
-    	this.idTurma = idTurma;
+    public void setConjIdTurma(Set<Turma> conjIdTurma) throws Exception {
+        ValidarAluno.validarConjIdTurma(conjIdTurma);
+    	this.conjIdTurma = conjIdTurma;
     }
 }

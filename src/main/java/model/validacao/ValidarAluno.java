@@ -2,6 +2,7 @@ package model.validacao;
 
 
 
+import java.util.Set;
 import java.util.regex.Pattern;
 
 import model.Aluno;
@@ -87,10 +88,8 @@ public class ValidarAluno {
 
 	}
 
-	public static void validarIdTurma(Turma idTurma) throws Exception {
-		if (idTurma == null)
+	public static void validarConjIdTurma(Set<Turma> conjIdTurma) throws Exception {
+		if (conjIdTurma == null)
 			throw new Exception("ID Turma não pode ser nulo");
-
-		// TODO adicionar mais validações específicas da turma
 	}
 }

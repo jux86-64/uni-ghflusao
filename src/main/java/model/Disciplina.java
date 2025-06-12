@@ -1,7 +1,13 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 import model.validacao.ValidarDisciplina;
 
+@Entity
 public class Disciplina {
 	
 	// CONSTANTES
@@ -9,13 +15,16 @@ public class Disciplina {
 	
 	
 	// ATRIBUTOS
+	@Id @GeneratedValue
 	private int idDisciplina;
+	@Column(length=MAX_QTD_CARACTERES)
 	private String nome;
+	@Column
 	private float credito;
 	
 	
 	
-	public Disciplina(int idDisciplina, String nome, float credito) {
+	public Disciplina(int idDisciplina, String nome, float credito) throws Exception {
 		super();
 		this.idDisciplina = idDisciplina;
 		this.nome = nome;

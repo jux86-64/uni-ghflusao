@@ -3,9 +3,11 @@ package model.validacao;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 import model.Disciplina;
+import model.Professor;
 import model.Situacao;
 import model.Turma;
 import model.Turno;
@@ -64,13 +66,13 @@ public class ValidarTurma {
 		}
 	}
 
-	public static void validarIdProfessor(int idProfessor) throws Exception {
-		if (idProfessor <= 0)
+	public static void validarConjIdProfessor(Set<Professor> conjIdProfessor) throws Exception {
+		if (conjIdProfessor == null)
 			throw new Exception("ID Professor deve ser um número positivo");
 	}
 
-	public static void validarIdDisciplina(Disciplina disciplina) throws Exception {
-		if (disciplina == null)
+	public static void validarConjIdDisciplina(Set<Disciplina> conjIdDisciplina) throws Exception {
+		if (conjIdDisciplina == null)
 			throw new Exception("Disciplina não pode ser nula");
 
 	}
