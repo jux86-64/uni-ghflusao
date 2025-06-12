@@ -20,7 +20,7 @@ public class CtrlIncluirTurma extends CtrlAbstrato {
 	// METODOS
 	public CtrlIncluirTurma(ICtrl c) {
 		super(c);
-		this.meuViewer = JanelaTurma(this);
+		// this.meuViewer = JanelaTurma(this);
 		this.turmaCriada = null;
 		this.meuViewer.apresentar();
 	}
