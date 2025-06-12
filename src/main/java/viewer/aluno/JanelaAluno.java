@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-// import controller.aluno.CtrlAbstratoAluno;
+import controller.aluno.CtrlAbstratoAluno;
 import controller.aluno.CtrlIncluirAluno;
 import model.Turma;
 import model.dao.DaoTurma;
@@ -43,7 +43,7 @@ public class JanelaAluno extends JanelaAbstrata {
 	/**
 	 * Create the frame.
 	 */
-	public JanelaAluno(CtrlAbstrato ctrl, boolean habilitarProcura) {
+	public JanelaAluno(CtrlAbstratoAluno ctrl, boolean habilitarProcura) {
 		super(ctrl);
 		this.alunoSelecionado = false;
 		this.habilitarProcura = habilitarProcura;

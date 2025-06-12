@@ -1,23 +1,23 @@
-/* package main.java.controller.aluno;
+package controller.aluno;
 
-import main.java.controller.CtrlAbstrato;
-import main.java.controller.ICtrl;
-import main.java.model.Aluno;
-import main.java.model.Turma;
-import main.java.model.dao.DaoAluno;
-import main.java.viewer.aluno.JanelaAluno;
+import controller.CtrlAbstrato;
+import controller.ICtrl;
+import model.Aluno;
+import model.Turma;
+import model.dao.DaoAluno;
+import viewer.aluno.JanelaAluno;
 
 abstract public class CtrlAbstratoAluno extends CtrlAbstrato {
 	
 	// ATRIBUTOS
 	protected JanelaAluno meuViewer;
-	protected Aluno alunoSelecionado;
+	protected Aluno alunoCriado;
 	final protected String operacao;
 	
 	// METODOS
 	public CtrlAbstratoAluno(ICtrl c, String operacao, boolean habilitarProcura) {
 		super(c);
-		this.alunoSelecionado = null;
+		this.alunoCriado = null;
 		this.operacao = operacao;
 		this.meuViewer = new JanelaAluno(this, habilitarProcura);
 	}
@@ -28,20 +28,20 @@ abstract public class CtrlAbstratoAluno extends CtrlAbstrato {
 	
 	public void procurarAlunoPorMatricula(int matricula) {
 		DaoAluno dao = new DaoAluno();
-		this.alunoSelecionado = dao.consultarAlunoTodos();
+		this.alunoCriado = dao.consultarAlunoPorMatricula(matricula);
 		
-		if(this.alunoSelecionado == null) {
+		if(this.alunoCriado == null) {
 			this.meuViewer.notificar("Aluno NAO encontrado com matricula informada");
 		}
 		
-		this.meuViewer.atualizarDados(this.alunoSelecionado.getIdAluno(),
-									  this.alunoSelecionado.getMatricula(),
-									  this.alunoSelecionado.getCpf(),
-									  this.alunoSelecionado.getTelefone(),
-									  this.alunoSelecionado.getEndereco(),
-									  this.alunoSelecionado.getIdade(),
-									  this.alunoSelecionado.getNome(),
-									  this.alunoSelecionado.getIdTurma());
+		this.meuViewer.atualizarDados(this.alunoCriado.getIdAluno(),
+									  this.alunoCriado.getMatricula(),
+									  this.alunoCriado.getCpf(),
+									  this.alunoCriado.getTelefone(),
+									  this.alunoCriado.getEndereco(),
+									  this.alunoCriado.getIdade(),
+									  this.alunoCriado.getNome(),
+									  this.alunoCriado.getIdTurma());
 	}
 	
 	abstract public void efetuar(int idAluno, int matricula, String cpf, String telefone, String endereco, int idade, String nome, Turma idTurma);
@@ -52,6 +52,6 @@ abstract public class CtrlAbstratoAluno extends CtrlAbstrato {
 	}
 	
 	public Object getBemTangivel() {
-		return this.alunoSelecionado;
+		return this.alunoCriado;
 	}
-} */
+} 

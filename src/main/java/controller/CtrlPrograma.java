@@ -6,8 +6,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import main.java.controller.aluno.CtrlIncluirAluno;
-import main.java.viewer.JanelaPrincipal;
+import controller.aluno.CtrlIncluirAluno;
+import viewer.JanelaPrincipal;
 
 
 public class CtrlPrograma extends CtrlAbstrato {
