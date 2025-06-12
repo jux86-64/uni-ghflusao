@@ -213,19 +213,6 @@ public class JanelaIncluirAluno extends JanelaAbstrata {
 		contentPane.add(btnSair);
 		
 		
-		if(habilitarProcura) {
-			btnProcurarPorMatricula = new JButton("Buscar por Matricula");
-			btnProcurarPorMatricula.setBounds(54, 341, 153, 25);
-			contentPane.add(btnProcurarPorMatricula);
-			btnProcurarPorMatricula.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					int matricula = Integer.parseInt(tfMatricula.getText());
-					CtrlAbstratoAluno ctrl = (CtrlAbstratoAluno)getCtrl();
-					ctrl.procurarAlunoPorMatricula(matricula);
-				}
-			});
-		}
-		
 		this.setVisible(true);
 	}
 	

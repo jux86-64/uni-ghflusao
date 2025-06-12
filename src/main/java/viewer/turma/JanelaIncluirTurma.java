@@ -13,6 +13,10 @@ import javax.swing.border.EmptyBorder;
 
 import controller.aluno.CtrlAbstratoAluno;
 import controller.turma.CtrlAbstratoTurma;
+import model.Disciplina;
+import model.Situacao;
+import model.Turno;
+import model.dao.DaoDisciplina;
 import viewer.JanelaAbstrata;
 
 public class JanelaIncluirTurma extends JanelaAbstrata {
@@ -21,6 +25,10 @@ public class JanelaIncluirTurma extends JanelaAbstrata {
 	private JPanel contentPane;
 	private JTextField tfIdTurma;
 	private JTextField tfData;
+	private JComboBox 		cbTurno;
+	private JComboBox 		cbSituacao;
+	private JComboBox 		cbIdDisciplina;
+	private JComboBox 		cbIdProfessor;
 	
 	final private boolean 	habilitarProcura;
 	private boolean    		turmaSelecionado;
@@ -49,11 +57,11 @@ public class JanelaIncluirTurma extends JanelaAbstrata {
 		contentPane.add(tfIdTurma);
 		tfIdTurma.setColumns(10);
 		
-		JComboBox cbTurno = new JComboBox();
+		cbTurno = new JComboBox(Turno.obterTodos());
 		cbTurno.setBounds(142, 93, 104, 24);
 		contentPane.add(cbTurno);
 		
-		JComboBox cbSituacao = new JComboBox();
+		cbSituacao = new JComboBox(Situacao.obterTodos());
 		cbSituacao.setBounds(142, 129, 104, 24);
 		contentPane.add(cbSituacao);
 		
@@ -62,13 +70,13 @@ public class JanelaIncluirTurma extends JanelaAbstrata {
 		contentPane.add(tfData);
 		tfData.setColumns(10);
 		
-		JComboBox cbTurno_1 = new JComboBox();
-		cbTurno_1.setBounds(142, 196, 104, 24);
-		contentPane.add(cbTurno_1);
+		cbIdDisciplina = new JComboBox(DaoDisciplina.consultarDisciplinaTodos());
+		cbIdDisciplina.setBounds(142, 196, 104, 24);
+		contentPane.add(cbIdDisciplina);
 		
-		JComboBox cbTurno_2 = new JComboBox();
-		cbTurno_2.setBounds(142, 232, 104, 24);
-		contentPane.add(cbTurno_2);
+		cbIdProfessor = new JComboBox();
+		cbIdProfessor.setBounds(142, 232, 104, 24);
+		contentPane.add(cbIdProfessor);
 		
 		JLabel lblIdTurma = new JLabel("ID Turma");
 		lblIdTurma.setBounds(45, 64, 55, 15);
@@ -95,7 +103,11 @@ public class JanelaIncluirTurma extends JanelaAbstrata {
 		contentPane.add(lblIdDisciplina);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
-		
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnCadastrar.setBounds(258, 247, 98, 41);
 		contentPane.add(btnCadastrar);
 		
@@ -108,5 +120,17 @@ public class JanelaIncluirTurma extends JanelaAbstrata {
 		});
 		btnSair.setBounds(366, 247, 72, 41);
 		contentPane.add(btnSair);
+		
+		this.setVisible(true);
+	}
+	
+	public void atualizarDados(int idTurma, Turno turno, Situacao situacao, String data_t,
+								Disciplina idDisciplina, int idProfessor) {
+		this.tfIdTurma.setText(Integer.toString(idTurma));
+		this.cbTurno.setSelectedItem(turno);
+		this.cbSituacao.setSelectedItem(situacao);
+		this.cbIdDisciplina.setSelectedItem(idDisciplina);
+		this.cbIdProfessor.setSelectedItem(idProfessor);
+		
 	}
 }

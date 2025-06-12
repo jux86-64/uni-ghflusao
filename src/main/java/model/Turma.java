@@ -13,9 +13,8 @@ public class Turma {
 	
 	// ATRIBUTOS 
 	private int idTurma;
-	private String turno;
-	// situacao pode ser um enum
-	private String situacao;
+	private Turno turno;
+	private Situacao situacao;
 	private String data_t;
 	private int idProfessor;
 	
@@ -24,7 +23,7 @@ public class Turma {
 	@OneToMany(mappedBy="idDisciplina")
 	private Disciplina idDisciplina;
 	
-	public Turma(int idTurma, String turno, String situacao, String data_t, Disciplina idDisciplina, int idProfessor) {
+	public Turma(int idTurma, Turno turno, Situacao situacao, String data_t, Disciplina idDisciplina, int idProfessor) {
 		super();
 		this.idTurma = idTurma;
 		this.turno = turno;

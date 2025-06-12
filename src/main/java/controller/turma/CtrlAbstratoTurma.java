@@ -3,10 +3,15 @@ package controller.turma;
 import controller.CtrlAbstrato;
 import controller.ICtrl;
 import model.Disciplina;
+import model.Situacao;
 import model.Turma;
+import model.Turno;
 import model.dao.DaoTurma;
+import viewer.turma.JanelaIncluirTurma;
 
 abstract public class CtrlAbstratoTurma extends CtrlAbstrato{
+	
+	// ATRIBUTOS
 	protected JanelaIncluirTurma meuViewer;
 	protected Turma turmaCriada;
 	final protected String operacao;
@@ -32,7 +37,7 @@ abstract public class CtrlAbstratoTurma extends CtrlAbstrato{
 		}
 		
 		this.meuViewer.atualizarDados(this.turmaCriada.getIdTurma(),
-									  this.turmaCriada.getData_t()),
+									  this.turmaCriada.getData_t(),
 									  this.turmaCriada.getIdDisciplina(),
 									  this.turmaCriada.getIdProfessor(),
 									  this.turmaCriada.getIdTurma(),
@@ -40,7 +45,7 @@ abstract public class CtrlAbstratoTurma extends CtrlAbstrato{
 									  this.turmaCriada.getTurno());
 	}
 	
-	abstract public void efetuar(int idTurma, String turno, String situacao, String data_t, Disciplina idDisciplina,
+	abstract public void efetuar(int idTurma, Turno turno, Situacao situacao, String data_t, Disciplina idDisciplina,
 			int idProfessor);
 	
 	public void finalizar() {

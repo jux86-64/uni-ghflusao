@@ -2,33 +2,28 @@ package controller.turma;
 
 
 
-import controller.CtrlAbstrato;
 import controller.ICtrl;
 import model.Disciplina;
+import model.Situacao;
 import model.Turma;
+import model.Turno;
 import model.dao.DaoTurma;
-import viewer.IViewer;
-import viewer.turma.JanelaTurma;
 
-public class CtrlIncluirTurma extends CtrlAbstrato {
-	
-	// ATRIBUTOS
-	private IViewer meuViewer;
-	private Turma turmaCriada;
-	
+public class CtrlIncluirTurma extends CtrlAbstratoTurma {
+
 	
 	// METODOS
 	public CtrlIncluirTurma(ICtrl c) {
-		super(c);
-		// this.meuViewer = JanelaTurma(this);
+		super(c, "Incluir Turma", false);
 		this.turmaCriada = null;
 		this.meuViewer.apresentar();
 	}
-		
-	public void efetuarInclusao(int idTurma, String turno, String situacao, String data_t, Disciplina idDisciplina,
+	
+	@Override
+	public void efetuar(int idTurma, Turno turno, Situacao situacao, String data_t, Disciplina idDisciplina,
 			int idProfessor) {
 		try {
-			this.turmaCriada = new Turma(idTurma, turno, situacao, data_t, idDisciplina, idProfessor);
+			this.turmaCriada = new Turma(idTurma,turno,situacao,data_t,idDisciplina,idProfessor);
 		} catch (Exception e1) {
 			this.meuViewer.notificar("Erro: " + e1);
 			return;

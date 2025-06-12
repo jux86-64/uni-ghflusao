@@ -68,7 +68,7 @@ public class DaoDisciplina {
 		return null;
 	}
 	
-	public Disciplina[] consultarDisciplinaTodos() {
+	public static Disciplina[] consultarDisciplinaTodos() {
 		Query query = entityManager.createNamedQuery("Disciplina.all");
 		List<Disciplina> resultado  = query.getResultList();
 		Disciplina[] retorno = new Disciplina[resultado.size()];

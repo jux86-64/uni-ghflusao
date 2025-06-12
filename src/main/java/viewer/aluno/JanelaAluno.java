@@ -5,25 +5,29 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import controller.CtrlPrograma;
+import controller.aluno.CtrlAbstratoAluno;
 import viewer.JanelaAbstrata;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
 
 public class JanelaAluno extends JanelaAbstrata {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField tfMatricula;
+	
+	final private boolean 	habilitarProcura;
 
 	/**
 	 * Create the frame.
 	 */
-	public JanelaAluno(CtrlPrograma c) {
-		super(c);
+	public JanelaAluno(CtrlAbstratoAluno ctrl, boolean habilitarProcura) {
+		super(ctrl);
+		this.habilitarProcura = habilitarProcura;
 		
 		setTitle("Aluno");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -69,15 +73,28 @@ public class JanelaAluno extends JanelaAbstrata {
 		lblMatricula.setBounds(31, 304, 55, 15);
 		contentPane.add(lblMatricula);
 		
-		JButton btnBuscar = new JButton("Buscar");
-		btnBuscar.addActionListener(new ActionListener() {
+		JButton btnProcurarPorMatricula = new JButton("Buscar");
+		btnProcurarPorMatricula.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 			}
 		});
 		
-		btnBuscar.setBounds(118, 319, 79, 18);
-		contentPane.add(btnBuscar);
+		btnProcurarPorMatricula.setBounds(118, 319, 79, 18);
+		contentPane.add(btnProcurarPorMatricula);
+		
+		if(habilitarProcura) {
+			btnProcurarPorMatricula = new JButton("Buscar por Matricula");
+			btnProcurarPorMatricula.setBounds(54, 341, 153, 25);
+			contentPane.add(btnProcurarPorMatricula);
+			btnProcurarPorMatricula.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					int matricula = Integer.parseInt(tfMatricula.getText());
+					CtrlAbstratoAluno ctrl = (CtrlAbstratoAluno)getCtrl();
+					ctrl.procurarAlunoPorMatricula(matricula);
+				}
+			});
+		}
 		
 		this.setVisible(true);
 	}
