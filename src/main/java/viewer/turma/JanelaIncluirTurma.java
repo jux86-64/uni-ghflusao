@@ -145,6 +145,7 @@ public class JanelaIncluirTurma extends JanelaAbstrata {
 		this.setVisible(true);
 	}
 	
+	// ATUALIZAÇÃO DE DADOS
 	public void atualizarDisciplina(Disciplina nova) {
 		this.cbIdDisciplina.addItem(nova);
 		this.cbIdDisciplina.setSelectedItem(nova);

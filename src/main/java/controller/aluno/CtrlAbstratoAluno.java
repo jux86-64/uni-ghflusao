@@ -33,15 +33,6 @@ abstract public class CtrlAbstratoAluno extends CtrlAbstrato {
 		if(this.alunoCriado == null) {
 			this.meuViewer.notificar("Aluno NAO encontrado com matricula informada");
 		}
-		
-		this.meuViewer.atualizarDados(this.alunoCriado.getIdAluno(),
-									  this.alunoCriado.getMatricula(),
-									  this.alunoCriado.getCpf(),
-									  this.alunoCriado.getTelefone(),
-									  this.alunoCriado.getEndereco(),
-									  this.alunoCriado.getIdade(),
-									  this.alunoCriado.getNome(),
-									  this.alunoCriado.getIdTurma());
 	}
 	
 	abstract public void efetuar(int idAluno, int matricula, String cpf, String telefone, String endereco, int idade, String nome, Turma idTurma);

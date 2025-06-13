@@ -40,12 +40,36 @@ public class JanelaPrincipal extends JanelaAbstrata {
 		contentPane.add(btnAluno);
 		
 		JButton btnTurma = new JButton("Turma");
+		btnTurma.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnTurma.setBounds(235, 35, 186, 62);
 		contentPane.add(btnTurma);
 		
 		JButton btnDisciplina = new JButton("Disciplina");
+		btnDisciplina.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnDisciplina.setBounds(37, 109, 186, 62);
 		contentPane.add(btnDisciplina);
+		
+		JButton btnProfessor = new JButton("Professor");
+		btnProfessor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnProfessor.setBounds(235, 109, 186, 62);
+		contentPane.add(btnProfessor);
+		
+		JButton btnDepartamento = new JButton("Departamento");
+		btnDepartamento.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnDepartamento.setBounds(37, 183, 186, 62);
+		contentPane.add(btnDepartamento);
 		
 		this.setVisible(true);
 	}

@@ -10,7 +10,7 @@ import model.enumerado.Situacao;
 import model.enumerado.Turno;
 import viewer.turma.JanelaIncluirTurma;
 
-abstract public class CtrlAbstratoTurma extends CtrlAbstrato{
+abstract public class CtrlAbstratoTurma extends CtrlAbstrato {
 	
 	// ATRIBUTOS
 	protected JanelaIncluirTurma meuViewer;
@@ -36,14 +36,6 @@ abstract public class CtrlAbstratoTurma extends CtrlAbstrato{
 		if(this.turmaCriada == null) {
 			this.meuViewer.notificar("Turma NAO encontrado com id informado");
 		}
-		
-		this.meuViewer.atualizarDados(this.turmaCriada.getIdTurma(),
-									  this.turmaCriada.getData_t(),
-									  this.turmaCriada.getConjIdDisciplina(),
-									  this.turmaCriada.getConjIdProfessor(),
-									  this.turmaCriada.getIdTurma(),
-									  this.turmaCriada.getSituacao(),
-									  this.turmaCriada.getTurno());
 	}
 	
 	abstract public void efetuar(int idTurma, Turno turno, Situacao situacao, String data_t, Disciplina idDisciplina,
@@ -58,4 +50,4 @@ abstract public class CtrlAbstratoTurma extends CtrlAbstrato{
 		return this.turmaCriada;
 	}
 } 
-}
+

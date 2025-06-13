@@ -5,6 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import controller.aluno.CtrlIncluirAluno;
+import controller.disciplina.CtrlIncluirDisciplina;
 import controller.turma.CtrlIncluirTurma;
 import viewer.JanelaPrincipal;
 
@@ -12,7 +13,7 @@ import viewer.JanelaPrincipal;
 public class CtrlPrograma extends CtrlAbstrato {
 	
 	// ATRIBUTOS DE RELACIONAMENTO
-	private JanelaPrincipal janela;
+	private JanelaPrincipal meuViewer;
 	private CtrlIncluirAluno ctrlIncluirAluno;
 	private CtrlIncluirTurma ctrlIncluirTurma;
 	private CtrlIncluirDisciplina ctrlIncluirDisciplina;
@@ -24,7 +25,7 @@ public class CtrlPrograma extends CtrlAbstrato {
 	// METODOS
 	public CtrlPrograma() {
 		super(null);
-		this.janela = new JanelaPrincipal(this);
+		this.meuViewer = new JanelaPrincipal(this);
 		this.ctrlIncluirAluno = null;
 		this.ctrlIncluirTurma = null;
 		this.ctrlIncluirDisciplina = null;
@@ -39,21 +40,21 @@ public class CtrlPrograma extends CtrlAbstrato {
 		if (this.ctrlIncluirAluno == null)
 			this.ctrlIncluirAluno = new CtrlIncluirAluno(this);
 		else 
-			this.janela.notificar("Você já iniciou a funcionalidade de Incluir Aluno");
+			this.meuViewer.notificar("Você já iniciou a funcionalidade de Incluir Aluno");
 	}
 	
 	public void iniciarIncluirTurma() {
 		if (this.ctrlIncluirTurma == null)
 			this.ctrlIncluirTurma = new CtrlIncluirTurma(this);
 		else
-			this.janela.notificar("Você já iniciou a funcionalidade de Incluir Turma");
+			this.meuViewer.notificar("Você já iniciou a funcionalidade de Incluir Turma");
 	}
 	
 	public void iniciarIncluirDisciplina() {
 		if (this.ctrlIncluirDisciplina == null)
 			this.ctrlIncluirDisciplina = new CtrlIncluirDisciplina(this);
 		else
-			this.janela.notificar("Você já iniciou a funcionalidade de Incluir Disciplina");
+			this.meuViewer.notificar("Você já iniciou a funcionalidade de Incluir Disciplina");
 	}
 	
 	// METODOS DE ALTERACAO
@@ -71,8 +72,8 @@ public class CtrlPrograma extends CtrlAbstrato {
 	
 	
 	public void finalizar() {
-		this.janela.notificar("Encerrando o programa!");
-		this.janela.finalizar();
+		this.meuViewer.notificar("Encerrando o programa!");
+		this.meuViewer.finalizar();
 		System.exit(0);
 	}
 	

@@ -190,23 +190,9 @@ public class JanelaIncluirAluno extends JanelaAbstrata {
 	}
 	
 	// ATUALIZAÇÃO DE DADOS 
-	public void atualizarDados(int idAluno, int matricula, String cpf, String telefone, String endereco, int idade, String nome, Turma idTurma) {
-		this.tfId.setText(Integer.toString(idAluno));
-		this.tfMatricula.setText(Integer.toString(matricula));
-		this.tfCpf.setText(cpf);
-		this.tfTelefone.setText(telefone);
-		this.tfEndereco.setText(endereco);
-		this.tfIdade.setText(Integer.toString(idade));
-		this.tfNome.setText(nome);
-		this.cbIdTurma.setSelectedItem(idTurma);
-		
-		this.tfMatricula.setEnabled(false);
-		if(this.habilitarProcura)
-		 	this.btnProcurarPorMatricula.setEnabled(false);
-		this.alunoSelecionado = true;
-		
-		/*this.cbIdTurma.addItem(idTurma);
-		this.cbIdTurma.setSelectedItem(idTurma);*/
-		
+	public void atualizarIdTurma(Turma nova) {
+		this.cbIdTurma.addItem(nova);
+		this.cbIdTurma.setSelectedItem(nova);
 	}
+	
 }
