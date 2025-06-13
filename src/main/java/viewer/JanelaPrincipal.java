@@ -11,9 +11,12 @@ import javax.swing.border.EmptyBorder;
 import controller.CtrlAbstrato;
 import controller.CtrlPrograma;
 import viewer.aluno.JanelaIncluirAluno;
+import viewer.cursa.JanelaIncluirCursa;
 import viewer.departamento.JanelaIncluirDepartamento;
 import viewer.disciplina.JanelaIncluirDisciplina;
 import viewer.professor.JanelaIncluirProfessor;
+import viewer.prova.JanelaIncluirProva;
+import viewer.realiza.JanelaIncluirRealiza;
 import viewer.turma.JanelaIncluirTurma;
 
 public class JanelaPrincipal extends JanelaAbstrata {
@@ -28,7 +31,7 @@ public class JanelaPrincipal extends JanelaAbstrata {
 		super(c);
 		setTitle("Menu Principal");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 379);
+		setBounds(100, 100, 450, 430);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -93,8 +96,38 @@ public class JanelaPrincipal extends JanelaAbstrata {
 				ctrl.finalizar();	
 			}
 		});
-		btnSair.setBounds(37, 279, 384, 31);
+		btnSair.setBounds(37, 350, 384, 31);
 		contentPane.add(btnSair);
+		
+		JButton btnCursa = new JButton("Cursa");
+		btnCursa.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JanelaIncluirCursa meuViewer = new JanelaIncluirCursa(null, false);
+				meuViewer.setVisible(true);
+			}
+		});
+		btnCursa.setBounds(235, 183, 186, 62);
+		contentPane.add(btnCursa);
+		
+		JButton btnProva = new JButton("Prova");
+		btnProva.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JanelaIncluirProva meuViewer = new JanelaIncluirProva(null, false);
+				meuViewer.setVisible(true);
+			}
+		});
+		btnProva.setBounds(37, 257, 186, 62);
+		contentPane.add(btnProva);
+		
+		JButton btnRealiza = new JButton("Realiza");
+		btnRealiza.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JanelaIncluirRealiza meuViewer = new JanelaIncluirRealiza(null, false);
+				meuViewer.setVisible(true);
+			}
+		});
+		btnRealiza.setBounds(235, 257, 186, 62);
+		contentPane.add(btnRealiza);
 		
 		this.setVisible(true);
 	}

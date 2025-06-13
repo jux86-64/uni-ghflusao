@@ -41,7 +41,7 @@ public class JanelaIncluirProfessor extends JanelaAbstrata {
 		this.habilitarProcura = habilitarProcura;
 		
 		
-		setTitle("Cadastrar Aluno");
+		setTitle("Cadastrar Professor");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 454);
 		contentPane = new JPanel();
