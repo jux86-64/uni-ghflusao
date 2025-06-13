@@ -6,6 +6,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/EclipseLink"/>
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
@@ -19,5 +20,7 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="com.jgoodies.forms_1.9.0.v20240327-0800.jar"/>
 	<classpathentry kind="lib" path="com.jgoodies.common_1.8.1.v20240327-0800.jar"/>
+	<classpathentry kind="lib" path="/home/ju/Downloads/eclipselink-4.0.6.v20250404-b9b1a3052f/eclipselink/jlib/eclipselink.jar"/>
+	<classpathentry kind="lib" path="/home/ju/Downloads/ojdbc8.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

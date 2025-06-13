@@ -1,0 +1,90 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	version="2.1">
+	<persistence-unit name="uni-ghflusao">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<class>uni-ghflusao.controller.CtrlAbstrato</class>
+		<class>uni-ghflusao.controller.CtrlPrograma</class>
+		<class>uni-ghflusao.controller.ICtrl</class>
+		<class>uni-ghflusao.controller.StatusExecucao</class>
+		<class>uni-ghflusao.controller.aluno.CtrlAbstratoAluno</class>
+		<class>uni-ghflusao.controller.aluno.CtrlIncluirAluno</class>
+		<class>uni-ghflusao.controller.cursa.CtrlAbstratoCursa</class>
+		<class>uni-ghflusao.controller.cursa.CtrlIncluirCursa</class>
+		<class>uni-ghflusao.controller.departamento.CtrlAbstratoDepartamento</class>
+		<class>uni-ghflusao.controller.departamento.CtrlIncluirDepartamento</class>
+		<class>uni-ghflusao.controller.departamento.CtrlAbstratoDepartamento</class>
+		<class>uni-ghflusao.controller.departamento.CtrlIncluirDepartamento</class>
+		<class>uni-ghflusao.controller.disciplina.CtrlAbstratoDisciplina</class>
+		<class>uni-ghflusao.controller.disciplina.CtrlIncluirDisciplina</class>
+		<class>uni-ghflusao.controller.disciplina.CtrlAbstratoDisciplina</class>
+		<class>uni-ghflusao.controller.disciplina.CtrlIncluirDisciplina</class>
+		<class>uni-ghflusao.controller.professor.CtrlAbstratoProfessor</class>
+		<class>uni-ghflusao.controller.professor.CtrlIncluirProfessor</class>
+		<class>uni-ghflusao.controller.prova.CtrlAbstratoProva</class>
+		<class>uni-ghflusao.controller.prova.CtrlIncluirProva</class>
+		<class>uni-ghflusao.controller.realiza.CtrlAbstratoRealiza</class>
+		<class>uni-ghflusao.controller.realiza.CtrlIncluirRealiza</class>
+		<class>uni-ghflusao.controller.realiza.CtrlAbstratoRealiza</class>
+		<class>uni-ghflusao.controller.realiza.CtrlIncluirRealiza</class>
+		<class>uni-ghflusao.controller.turma.CtrlAbstratoTurma</class>
+		<class>uni-ghflusao.controller.turma.CtrlIncluirTurma</class>
+		<class>uni-ghflusao.model.Aluno</class>
+		<class>uni-ghflusao.model.Cursa</class>
+		<class>uni-ghflusao.model.Departamento</class>
+		<class>uni-ghflusao.model.Disciplina</class>
+		<class>uni-ghflusao.model.Professor</class>
+		<class>uni-ghflusao.model.Prova</class>
+		<class>uni-ghflusao.model.Realiza</class>
+		<class>uni-ghflusao.model.Turma</class>
+		<class>uni-ghflusao.model.dao.DaoAluno</class>
+		<class>uni-ghflusao.model.dao.DaoCursa</class>
+		<class>uni-ghflusao.model.dao.DaoDepartamento</class>
+		<class>uni-ghflusao.model.dao.DaoDisciplina</class>
+		<class>uni-ghflusao.model.dao.DaoProfessor</class>
+		<class>uni-ghflusao.model.dao.DaoProva</class>
+		<class>uni-ghflusao.model.dao.DaoRealiza</class>
+		<class>uni-ghflusao.model.dao.DaoTurma</class>
+		<class>uni-ghflusao.model.enumerado.Situacao</class>
+		<class>uni-ghflusao.model.enumerado.Turno</class>
+		<class>uni-ghflusao.model.enumerado.Situacao</class>
+		<class>uni-ghflusao.model.enumerado.Turno</class>
+		<class>uni-ghflusao.model.validacao.ValidarAluno</class>
+		<class>uni-ghflusao.model.validacao.ValidarCursa</class>
+		<class>uni-ghflusao.model.validacao.ValidarDepartamento</class>
+		<class>uni-ghflusao.model.validacao.ValidarDisciplina</class>
+		<class>uni-ghflusao.model.validacao.ValidarProfessor</class>
+		<class>uni-ghflusao.model.validacao.ValidarProva</class>
+		<class>uni-ghflusao.model.validacao.ValidarRealiza</class>
+		<class>uni-ghflusao.model.validacao.ValidarTurma</class>
+		<class>uni-ghflusao.viewer.IViewer</class>
+		<class>uni-ghflusao.viewer.JanelaAbstrata</class>
+		<class>uni-ghflusao.viewer.JanelaPrincipal</class>
+		<class>uni-ghflusao.viewer.aluno.JanelaAluno</class>
+		<class>uni-ghflusao.viewer.aluno.JanelaIncluirAluno</class>
+		<class>uni-ghflusao.viewer.cursa.JanelaCursa</class>
+		<class>uni-ghflusao.viewer.cursa.JanelaIncluirCursa</class>
+		<class>uni-ghflusao.viewer.cursa.JanelaCursa</class>
+		<class>uni-ghflusao.viewer.cursa.JanelaIncluirCursa</class>
+		<class>uni-ghflusao.viewer.departamento.JanelaIncluirDepartamento</class>
+		<class>uni-ghflusao.viewer.disciplina.JanelaIncluirDisciplina</class>
+		<class>uni-ghflusao.viewer.professor.JanelaIncluirProfessor</class>
+		<class>uni-ghflusao.viewer.professor.JanelaProfessor</class>
+		<class>uni-ghflusao.viewer.prova.JanelaIncluirProva</class>
+		<class>uni-ghflusao.viewer.prova.JanelaProva</class>
+		<class>uni-ghflusao.viewer.realiza.JanelaIncluirRealiza</class>
+		<class>uni-ghflusao.viewer.turma.JanelaIncluirTurma</class>
+		<class>uni-ghflusao.viewer.turma.JanelaTurma</class>
+
+
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:/home/ju/Documentos/unilasalle/WrkEngSoft/database-uni-ghflusao" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="12345" />
+			<property name="javax.persistence.jdbc.driver" value="..." />
+
+			<property name="eclipselink.logging.level" value="FINE" />
+			<property name="eclipselink.ddl-generation"
+				value="create-or-extend-tables" />
+		</properties>
+	</persistence-unit>
+</persistence>
