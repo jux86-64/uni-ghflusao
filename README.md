@@ -17,29 +17,31 @@
 
 ## Descrição
 
-Este repositório contém um sistema desenvolvido em Java com Maven, voltado para a gestão acadêmica na "Universidade GHFlusão". O projeto integra conceitos de DevOps, CI/CD e segurança – possivelmente com uma pipeline e foco em integração segura contínua :contentReference[oaicite:2]{index=2}.
+Este repositório contém um sistema desenvolvido em Java com Maven, voltado para a gestão acadêmica na "Universidade GHFlusão". O projeto integra conceitos de DevOps, CI/CD e segurança – possivelmente com uma pipeline e foco em integração segura contínua.
 
 ---
 
 ## Tecnologias
 
-- **Java** (100 %) :contentReference[oaicite:3]{index=3}  
+- **Java** (100 %)  
 - **Maven** como gerenciador e ferramenta de build (`pom.xml`)  
 - Dependências incluem JGoodies Forms para GUI (`com.jgoodies.*.jar`)  
 - Ambiente de desenvolvimento Eclipse (arquivos `.classpath`, `.project`, `.settings`)
 
 ---
 
-## Estrutura do Projeto
+## 📁 Estrutura de Diretórios
+
+```plaintext
 uni-ghflusao/
 ├── .gitignore
 ├── pom.xml
 ├── com.jgoodies.common_1.8.1.jar
 ├── com.jgoodies.forms_1.9.0.jar
 ├── src/
-│ └── main/
-│ └── java/
-│ └── … (código-fonte Java)
+│   └── main/
+│       └── java/
+│           └── … (código-fonte Java)
 ├── .settings/
 ├── .classpath
 └── .project
