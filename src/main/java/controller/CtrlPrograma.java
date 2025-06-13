@@ -1,8 +1,12 @@
 package controller;
 
+import java.sql.*;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
+import com.mysql.cj.xdevapi.Statement;
 
 import controller.aluno.CtrlIncluirAluno;
 import controller.cursa.CtrlIncluirCursa;
@@ -128,7 +132,20 @@ public class CtrlPrograma extends CtrlAbstrato {
 		return null;
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
+		// create connection for a server installed in localhost, with a user "root"
+		// with no password
+		try (Connection conn = DriverManager.getConnection("jdbc:mariadb://localhost/", "root", null)) {
+			// create a Statement
+			try (Statement stmt = conn.createStatement()) {
+				// execute query
+				try (ResultSet rs = stmt.executeQuery("SELECT 'Hello World!'")) {
+					// position result to first
+					rs.first();
+					System.out.println(rs.getString(1)); // result is "Hello World!"
+				}
+			}
+		}
 		new CtrlPrograma();
 	}
 }
