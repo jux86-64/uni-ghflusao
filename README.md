@@ -1,6 +1,6 @@
 # uni‑ghflusao
 
-**Sistema acadêmico desenvolvido como trabalho da disciplina de Engenharia de Software na Universidade GHFlusão.** :contentReference[oaicite:1]{index=1}
+**Sistema acadêmico desenvolvido como trabalho da disciplina de Engenharia de Software na Universidade GHFlusão.** 
 
 ---
 
