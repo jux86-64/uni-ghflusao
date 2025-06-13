@@ -17,7 +17,7 @@ public class CtrlIncluirDepartamento extends CtrlAbstratoDepartamento {
 	@Override
 	public void efetuar(int idDisciplina, String nome) {
 		try {
-			this.departamentoCriado = new Departamento(idDisciplina, nome;
+			this.departamentoCriado = new Departamento(idDisciplina, nome);
 		} catch (Exception e1) {
 			this.meuViewer.notificar("Erro: " + e1);
 			return;

@@ -11,7 +11,9 @@ import javax.swing.border.EmptyBorder;
 import controller.CtrlAbstrato;
 import controller.CtrlPrograma;
 import viewer.aluno.JanelaIncluirAluno;
+import viewer.departamento.JanelaIncluirDepartamento;
 import viewer.disciplina.JanelaIncluirDisciplina;
+import viewer.professor.JanelaIncluirProfessor;
 import viewer.turma.JanelaIncluirTurma;
 
 public class JanelaPrincipal extends JanelaAbstrata {
@@ -77,6 +79,8 @@ public class JanelaPrincipal extends JanelaAbstrata {
 		JButton btnDepartamento = new JButton("Departamento");
 		btnDepartamento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JanelaIncluirDepartamento meuViewer = new JanelaIncluirDepartamento(null, false);
+				meuViewer.setVisible(true);
 			}
 		});
 		btnDepartamento.setBounds(37, 183, 186, 62);

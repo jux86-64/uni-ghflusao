@@ -15,9 +15,9 @@ public class CtrlIncluirProfessor extends CtrlAbstratoProfessor {
 			}
 
 	@Override
-	public void efetuar(int idProfessor, String nome, String endereco, String telefone, String cpf, String especialidade, Departamento idDepartamento) {
+	public void efetuar(int idProfessor, String nome, String endereco, String telefone, String cpf, int idade, String especialidade, Departamento idDepartamento) {
 		try {
-			this.professorCriado = new Professor(idProfessor,nome,endereco,telefone,cpf,especialidade,idDepartamento);
+			this.professorCriado = new Professor(idProfessor,nome,endereco,telefone,cpf,idade,especialidade,idDepartamento);
 		} catch (Exception e1) {
 			this.meuViewer.notificar("Erro: " + e1);
 			return;
