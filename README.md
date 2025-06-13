@@ -9,9 +9,6 @@
 - [Descrição](#descrição)  
 - [Tecnologias](#tecnologias)  
 - [Estrutura do Projeto](#estrutura-do-projeto)  
-- [Como Executar](#como-executar)  
-- [Contribuição](#contribuição)  
-- [Licença](#licença)
 
 ---
 
@@ -30,7 +27,7 @@ Este repositório contém um sistema desenvolvido em Java com Maven, voltado par
 
 ---
 
-## 📁 Estrutura de Diretórios
+## Estrutura de Diretórios
 
 ```plaintext
 uni-ghflusao/
