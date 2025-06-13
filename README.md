@@ -27,7 +27,7 @@ Este repositório contém um sistema desenvolvido em Java com Maven, voltado par
 
 ---
 
-## Estrutura de Diretórios
+## 📁 Estrutura de Projeto
 
 ```plaintext
 uni-ghflusao/
