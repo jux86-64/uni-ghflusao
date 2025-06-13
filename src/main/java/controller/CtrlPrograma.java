@@ -70,7 +70,6 @@ public class CtrlPrograma extends CtrlAbstrato {
 			this.ctrlIncluirAluno = null;
 	}
 	
-	
 	public void finalizar() {
 		this.meuViewer.notificar("Encerrando o programa!");
 		this.meuViewer.finalizar();

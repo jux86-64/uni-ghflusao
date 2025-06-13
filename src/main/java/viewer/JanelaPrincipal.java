@@ -8,7 +8,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import controller.CtrlAbstrato;
 import controller.CtrlPrograma;
+import viewer.aluno.JanelaIncluirAluno;
+import viewer.disciplina.JanelaIncluirDisciplina;
+import viewer.turma.JanelaIncluirTurma;
 
 public class JanelaPrincipal extends JanelaAbstrata {
 
@@ -22,17 +26,18 @@ public class JanelaPrincipal extends JanelaAbstrata {
 		super(c);
 		setTitle("Menu Principal");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 379);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnAluno = new JButton(" Aluno");
+		JButton btnAluno = new JButton("Aluno");
 		btnAluno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CtrlPrograma ctrl = (CtrlPrograma)getCtrl();
+				JanelaIncluirAluno meuViewer = new JanelaIncluirAluno(null, false);
+				meuViewer.setVisible(true);
 			}
 		});
 		
@@ -42,6 +47,8 @@ public class JanelaPrincipal extends JanelaAbstrata {
 		JButton btnTurma = new JButton("Turma");
 		btnTurma.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JanelaIncluirTurma meuViewer = new JanelaIncluirTurma(null, false);
+				meuViewer.setVisible(true);
 			}
 		});
 		btnTurma.setBounds(235, 35, 186, 62);
@@ -50,6 +57,8 @@ public class JanelaPrincipal extends JanelaAbstrata {
 		JButton btnDisciplina = new JButton("Disciplina");
 		btnDisciplina.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JanelaIncluirDisciplina meuViewer = new JanelaIncluirDisciplina(null, false);
+				meuViewer.setVisible(true);
 			}
 		});
 		btnDisciplina.setBounds(37, 109, 186, 62);
@@ -58,6 +67,8 @@ public class JanelaPrincipal extends JanelaAbstrata {
 		JButton btnProfessor = new JButton("Professor");
 		btnProfessor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JanelaIncluirProfessor meuViewer = new JanelaIncluirProfessor(null, false);
+				meuViewer.setVisible(true);
 			}
 		});
 		btnProfessor.setBounds(235, 109, 186, 62);
@@ -70,6 +81,16 @@ public class JanelaPrincipal extends JanelaAbstrata {
 		});
 		btnDepartamento.setBounds(37, 183, 186, 62);
 		contentPane.add(btnDepartamento);
+		
+		JButton btnSair = new JButton("Sair");
+		btnSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CtrlAbstrato ctrl = (CtrlAbstrato)getCtrl();
+				ctrl.finalizar();	
+			}
+		});
+		btnSair.setBounds(37, 279, 384, 31);
+		contentPane.add(btnSair);
 		
 		this.setVisible(true);
 	}
