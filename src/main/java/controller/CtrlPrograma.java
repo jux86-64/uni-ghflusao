@@ -5,7 +5,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import controller.aluno.CtrlIncluirAluno;
+import controller.departamento.CtrlIncluirDepartamento;
 import controller.disciplina.CtrlIncluirDisciplina;
+import controller.professor.CtrlIncluirProfessor;
 import controller.turma.CtrlIncluirTurma;
 import viewer.JanelaPrincipal;
 
@@ -17,6 +19,8 @@ public class CtrlPrograma extends CtrlAbstrato {
 	private CtrlIncluirAluno ctrlIncluirAluno;
 	private CtrlIncluirTurma ctrlIncluirTurma;
 	private CtrlIncluirDisciplina ctrlIncluirDisciplina;
+	private CtrlIncluirProfessor ctrlIncluirProfessor;
+	private CtrlIncluirDepartamento ctrlIncluirDepartamento;
 	
 	// ATRIBUTOS CONEXÃO COM HSQLDB
 	private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("uni-ghflusao");
@@ -29,6 +33,8 @@ public class CtrlPrograma extends CtrlAbstrato {
 		this.ctrlIncluirAluno = null;
 		this.ctrlIncluirTurma = null;
 		this.ctrlIncluirDisciplina = null;
+		this.ctrlIncluirProfessor = null;
+		this.ctrlIncluirDepartamento = null;
 	}
 	
 	public static EntityManager getEntityManager() { 
@@ -55,6 +61,20 @@ public class CtrlPrograma extends CtrlAbstrato {
 			this.ctrlIncluirDisciplina = new CtrlIncluirDisciplina(this);
 		else
 			this.meuViewer.notificar("Você já iniciou a funcionalidade de Incluir Disciplina");
+	}
+	
+	public void iniciarIncluirProfessor() {
+		if (this.ctrlIncluirProfessor == null)
+			this.ctrlIncluirProfessor = new CtrlIncluirProfessor(this);
+		else
+			this.meuViewer.notificar("Você já iniciou a funcionalidade de Incluir Professor");
+	}
+	
+	public void iniciarIncluirDepartamento() {
+		if (this.ctrlIncluirDepartamento == null)
+			this.ctrlIncluirDepartamento = new CtrlIncluirDepartamento(this);
+		else
+			this.meuViewer.notificar("Você já iniciou a funcionalidade de Incluir Departamento");
 	}
 	
 	// METODOS DE ALTERACAO

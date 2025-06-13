@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import controller.CtrlPrograma;
+import controller.professor.CtrlAbstratoProfessor;
 import viewer.JanelaAbstrata;
 
 public class JanelaProfessor extends JanelaAbstrata {

@@ -2,9 +2,10 @@ package controller.professor;
 
 import controller.CtrlAbstrato;
 import controller.ICtrl;
+import model.Departamento;
 import model.Professor;
 import model.dao.DaoProfessor;
-import viewer.professor.JanelaIncluirDisciplina;
+import viewer.professor.JanelaIncluirProfessor;
 
 abstract public class CtrlAbstratoProfessor extends CtrlAbstrato {
 		

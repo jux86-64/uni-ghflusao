@@ -14,6 +14,9 @@ public class ValidarProfessor {
     // Padrão regex para validar telefone (aceita diversos formatos)
     private static final Pattern TELEFONE_PATTERN = Pattern.compile("^\\(?\\d{2}\\)?[\\s-]?\\d{4,5}[\\s-]?\\d{4}$");
 
+    private static final int IDADE_MINIMA = 3;
+	private static final int IDADE_MAXIMA = 120;
+    
     public static void validarProfessor(Professor professor) throws Exception {
         if (professor == null)
             throw new Exception("Professor não pode ser nulo");
@@ -23,6 +26,7 @@ public class ValidarProfessor {
         validarEndereco(professor.getEndereco());
         validarTelefone(professor.getTelefone());
         validarCpf(professor.getCpf());
+        validarIdade(professor.getIdade());
         validarEspecialidade(professor.getEspecialidade());
         validarConjIdDepartamento(professor.getConjIdDepartamento());
     }
@@ -69,6 +73,11 @@ public class ValidarProfessor {
         if (!CPF_PATTERN.matcher(cpf).matches())
             throw new Exception("CPF do professor deve estar no formato 000.000.000-00");
     }
+    
+    public static void validarIdade(int idade) throws Exception {
+		if (idade < IDADE_MINIMA || idade > IDADE_MAXIMA)
+			throw new Exception("Idade deve estar entre " + IDADE_MINIMA + " e " + IDADE_MAXIMA);
+	}
 
     public static void validarEspecialidade(String especialidade) throws Exception {
         if (especialidade == null || especialidade.isBlank())
