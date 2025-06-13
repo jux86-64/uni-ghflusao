@@ -2,6 +2,8 @@ package controller.aluno;
 
 
 
+import java.util.Set;
+
 import controller.ICtrl;
 import model.Aluno;
 import model.Turma;
@@ -19,7 +21,7 @@ public class CtrlIncluirAluno extends CtrlAbstratoAluno {
 
 	@Override
 	public void efetuar(int idAluno, int matricula, String cpf, String telefone, String endereco, int idade,
-			String nome, Turma idTurma) {
+			String nome, Set<Turma> idTurma) {
 		try {
 			this.alunoCriado = new Aluno(idAluno,matricula,cpf,telefone,endereco,idade,
 					nome,idTurma);

@@ -46,7 +46,7 @@ public class Aluno {
 	private Set<Turma> conjIdTurma;
 	
 
-    public Aluno(int idAluno, int matricula, String cpf, String telefone, String endereco, int idade, String nome, Turma idTurma)  throws Exception{
+    public Aluno(int idAluno, int matricula, String cpf, String telefone, String endereco, int idade, String nome, Set<Turma> conjIdTurma)  throws Exception{
         this.idAluno = idAluno; 
         this.matricula = matricula;
         this.cpf = cpf;

@@ -2,22 +2,22 @@ package controller.departamento;
 
 import controller.ICtrl;
 import model.Departamento;
-import model.Disciplina;
+import model.Departamento;
 import model.dao.DaoDepartamento;
-import model.dao.DaoDisciplina;
+import model.dao.DaoDepartamento;
 
 public class CtrlIncluirDepartamento extends CtrlAbstratoDepartamento {
 	// METODOS
 	public CtrlIncluirDepartamento(ICtrl c) {
-				super(c, "Incluir Disciplina", false);
+				super(c, "Incluir Departamento", false);
 				this.departamentoCriado = null;
 				this.meuViewer.apresentar();
 			}
 
 	@Override
-	public void efetuar(int idDisciplina, String nome) {
+	public void efetuar(int idDepartamento, String nome) {
 		try {
-			this.departamentoCriado = new Departamento(idDisciplina, nome);
+			this.departamentoCriado = new Departamento(idDepartamento, nome);
 		} catch (Exception e1) {
 			this.meuViewer.notificar("Erro: " + e1);
 			return;

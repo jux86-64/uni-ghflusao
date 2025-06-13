@@ -1,5 +1,7 @@
 package controller.aluno;
 
+import java.util.Set;
+
 import controller.CtrlAbstrato;
 import controller.ICtrl;
 import model.Aluno;
@@ -35,7 +37,7 @@ abstract public class CtrlAbstratoAluno extends CtrlAbstrato {
 		}
 	}
 	
-	abstract public void efetuar(int idAluno, int matricula, String cpf, String telefone, String endereco, int idade, String nome, Turma idTurma);
+	abstract public void efetuar(int idAluno, int matricula, String cpf, String telefone, String endereco, int idade, String nome, Set<Turma> idTurma);
 	
 	public void finalizar() {
 		this.meuViewer.finalizar();

@@ -17,7 +17,7 @@ import javax.swing.border.EmptyBorder;
 import controller.aluno.CtrlAbstratoAluno;
 import controller.aluno.CtrlIncluirAluno;
 import model.Turma;
-import model.dao.DaoRealiza;
+import model.dao.DaoTurma;
 import viewer.JanelaAbstrata;
 
 public class JanelaIncluirAluno extends JanelaAbstrata {
@@ -116,7 +116,7 @@ public class JanelaIncluirAluno extends JanelaAbstrata {
 		lblIdTurma.setBounds(244, 65, 55, 15);
 		contentPane.add(lblIdTurma);
 		
-		cbIdTurma = new JComboBox(DaoRealiza.obterIdTurmaTodos());
+		cbIdTurma = new JComboBox(DaoTurma.obterIdTurmaTodos());
 		cbIdTurma.setBounds(301, 60, 83, 24);
 		contentPane.add(cbIdTurma); 
 		
