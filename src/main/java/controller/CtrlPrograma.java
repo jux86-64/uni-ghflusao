@@ -1,12 +1,15 @@
 package controller;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import com.mysql.cj.xdevapi.Statement;
+import java.sql.Statement;
 
 import controller.aluno.CtrlIncluirAluno;
 import controller.cursa.CtrlIncluirCursa;
@@ -34,7 +37,7 @@ public class CtrlPrograma extends CtrlAbstrato {
 	
 	
 	// ATRIBUTOS CONEXÃO COM HSQLDB
-	private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("uni-ghflusao");
+	private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("unighflusao");
 	private static EntityManager        entityManager = entityManagerFactory.createEntityManager();
 	
 	// METODOS
