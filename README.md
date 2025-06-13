@@ -45,7 +45,7 @@ uni-ghflusao/
 ├── .settings/
 ├── .classpath
 └── .project
-
+```
 
 - **src/main/java**: Código-fonte principal (UI, lógica, etc.)  
 - **JARs do JGoodies**: bibliotecas de interface gráfica Swing/Forms  
