@@ -4,6 +4,7 @@ package viewer.aluno;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Set;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -168,7 +169,7 @@ public class JanelaIncluirAluno extends JanelaAbstrata {
 				
 				
 				CtrlIncluirAluno ctrl = (CtrlIncluirAluno)getCtrl();
-				ctrl.efetuar(id, matricula, cpf, telefone, endereco, idade, nome, (Turma)cbIdTurma.getSelectedItem());
+				ctrl.efetuar(id, matricula, cpf, telefone, endereco, idade, nome, (Set<Turma>)cbIdTurma.getSelectedItem());
 			}
 		});
 		

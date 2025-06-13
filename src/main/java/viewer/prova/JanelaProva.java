@@ -87,7 +87,7 @@ public class JanelaProva extends JanelaAbstrata {
 				public void actionPerformed(ActionEvent e) {
 					int idProva = Integer.parseInt(tfId.getText());
 					CtrlAbstratoProva ctrl = (CtrlAbstratoProva)getCtrl();
-					ctrl.procurarProvaPorId(idProva);
+					ctrl.consultarProvaPorID(idProva);
 				}
 			});
 		}

@@ -6,7 +6,7 @@ import controller.ICtrl;
 import model.Disciplina;
 import model.Professor;
 import model.Turma;
-import model.dao.DaoRealiza;
+import model.dao.DaoTurma;
 import model.enumerado.Situacao;
 import model.enumerado.Turno;
 
@@ -40,7 +40,7 @@ public class CtrlIncluirTurma extends CtrlAbstratoTurma {
 			return;
 		}
 
-		DaoRealiza dao = new DaoRealiza();
+		DaoTurma dao = new DaoTurma();
 		dao.incluir(turmaCriada);
 		this.finalizar();
 	}

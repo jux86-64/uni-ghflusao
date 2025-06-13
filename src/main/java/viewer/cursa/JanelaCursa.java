@@ -87,7 +87,7 @@ public class JanelaCursa extends JanelaAbstrata {
 				public void actionPerformed(ActionEvent e) {
 					int idCursa = Integer.parseInt(tfId.getText());
 					CtrlAbstratoCursa ctrl = (CtrlAbstratoCursa)getCtrl();
-					ctrl.procurarCursaPorId(idCursa);
+					ctrl.consultarCursaPorID(idCursa);
 				}
 			});
 		}
