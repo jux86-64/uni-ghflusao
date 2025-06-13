@@ -37,8 +37,8 @@ public class CtrlPrograma extends CtrlAbstrato {
 	
 	
 	// ATRIBUTOS CONEXÃO COM HSQLDB
-	private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("unighflusao");
-	private static EntityManager        entityManager = entityManagerFactory.createEntityManager();
+	private static EntityManagerFactory entityManagerFactory;
+	private static EntityManager        entityManager;
 	
 	// METODOS
 	public CtrlPrograma() {
@@ -49,6 +49,9 @@ public class CtrlPrograma extends CtrlAbstrato {
 		this.ctrlIncluirDisciplina = null;
 		this.ctrlIncluirProfessor = null;
 		this.ctrlIncluirDepartamento = null;
+		
+		entityManagerFactory = Persistence.createEntityManagerFactory("uni-ghflusao");
+		entityManager = entityManagerFactory.createEntityManager();
 	}
 	
 	public static EntityManager getEntityManager() { 
@@ -138,7 +141,7 @@ public class CtrlPrograma extends CtrlAbstrato {
 	public static void main(String[] args) throws SQLException {
 		// create connection for a server installed in localhost, with a user "root"
 		// with no password
-		try (Connection conn = DriverManager.getConnection("jdbc:mariadb://localhost/", "root", null)) {
+		try (Connection conn = DriverManager.getConnection("jdbc:mariadb://localhost/", "root", "12345")) {
 			// create a Statement
 			try (Statement stmt = conn.createStatement()) {
 				// execute query
