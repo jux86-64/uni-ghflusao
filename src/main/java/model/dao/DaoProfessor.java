@@ -5,8 +5,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.NamedQuery;
 import javax.persistence.PersistenceException;
 
-import com.mysql.cj.Query;
-
 import controller.CtrlPrograma;
 import model.Professor;
 

@@ -4,6 +4,7 @@ import java.util.Set;
 
 import controller.CtrlAbstrato;
 import controller.ICtrl;
+import controller.StatusExecucao;
 import model.Aluno;
 import model.Turma;
 import model.dao.DaoAluno;
@@ -15,6 +16,7 @@ abstract public class CtrlAbstratoAluno extends CtrlAbstrato {
 	protected JanelaIncluirAluno meuViewer;
 	protected Aluno alunoCriado;
 	final protected String operacao;
+	private StatusExecucao  status;
 	
 	// METODOS
 	public CtrlAbstratoAluno(ICtrl c, String operacao, boolean habilitarProcura) {
@@ -22,6 +24,7 @@ abstract public class CtrlAbstratoAluno extends CtrlAbstrato {
 		this.alunoCriado = null;
 		this.operacao = operacao;
 		this.meuViewer = new JanelaIncluirAluno(this, habilitarProcura);
+		this.status = StatusExecucao.EM_EXECUCAO;
 	}
 	
 	public String getOperacao() {

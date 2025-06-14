@@ -10,11 +10,12 @@ import javax.persistence.Query;
 import controller.CtrlPrograma;
 import model.Turma;
 
-@NamedQueries ({
-	@NamedQuery(name = "Turma.idTurma", query = "SELECT t FROM Turma t WHERE t.idTurma = :idTurma")
-})
+
+
+@NamedQuery(name = "Turma.idTurma", query = "SELECT t FROM Turma t WHERE t.idTurma = :idTurma")
 public class DaoTurma {
 	
+	// ATRIBUTOS
 	private static EntityManager entityManager = CtrlPrograma.getEntityManager();
 	
 	public DaoTurma() {

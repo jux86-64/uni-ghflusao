@@ -11,14 +11,18 @@ import javax.swing.border.EmptyBorder;
 import controller.CtrlAbstrato;
 import controller.CtrlPrograma;
 import controller.aluno.CtrlAbstratoAluno;
+import controller.cursa.CtrlAbstratoCursa;
+import controller.professor.CtrlAbstratoProfessor;
+import controller.prova.CtrlAbstratoProva;
+import controller.turma.CtrlAbstratoTurma;
 import viewer.aluno.JanelaAluno;
-import viewer.cursa.JanelaIncluirCursa;
+import viewer.cursa.JanelaCursa;
 import viewer.departamento.JanelaIncluirDepartamento;
 import viewer.disciplina.JanelaIncluirDisciplina;
-import viewer.professor.JanelaIncluirProfessor;
-import viewer.prova.JanelaIncluirProva;
+import viewer.professor.JanelaProfessor;
+import viewer.prova.JanelaProva;
 import viewer.realiza.JanelaIncluirRealiza;
-import viewer.turma.JanelaIncluirTurma;
+import viewer.turma.JanelaTurma;
 
 public class JanelaPrincipal extends JanelaAbstrata {
 
@@ -53,8 +57,9 @@ public class JanelaPrincipal extends JanelaAbstrata {
 		JButton btnTurma = new JButton("Turma");
 		btnTurma.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JanelaIncluirTurma meuViewer = new JanelaIncluirTurma(null, false);
-				meuViewer.setVisible(true);
+				CtrlAbstratoTurma c = null;
+				JanelaTurma janela = new JanelaTurma(c,false);
+				janela.apresentar();
 			}
 		});
 		btnTurma.setBounds(235, 35, 186, 62);
@@ -73,8 +78,9 @@ public class JanelaPrincipal extends JanelaAbstrata {
 		JButton btnProfessor = new JButton("Professor");
 		btnProfessor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JanelaIncluirProfessor meuViewer = new JanelaIncluirProfessor(null, false);
-				meuViewer.setVisible(true);
+				CtrlAbstratoProfessor c = null;
+				JanelaProfessor janela = new JanelaProfessor(c,false);
+				janela.apresentar();
 			}
 		});
 		btnProfessor.setBounds(235, 109, 186, 62);
@@ -103,8 +109,9 @@ public class JanelaPrincipal extends JanelaAbstrata {
 		JButton btnCursa = new JButton("Cursa");
 		btnCursa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JanelaIncluirCursa meuViewer = new JanelaIncluirCursa(null, false);
-				meuViewer.setVisible(true);
+				CtrlAbstratoCursa c = null;
+				JanelaCursa janela = new JanelaCursa(c,false);
+				janela.apresentar();
 			}
 		});
 		btnCursa.setBounds(235, 183, 186, 62);
@@ -113,8 +120,9 @@ public class JanelaPrincipal extends JanelaAbstrata {
 		JButton btnProva = new JButton("Prova");
 		btnProva.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JanelaIncluirProva meuViewer = new JanelaIncluirProva(null, false);
-				meuViewer.setVisible(true);
+				CtrlAbstratoProva c = null;
+				JanelaProva janela = new JanelaProva(c,false);
+				janela.apresentar();
 			}
 		});
 		btnProva.setBounds(37, 257, 186, 62);

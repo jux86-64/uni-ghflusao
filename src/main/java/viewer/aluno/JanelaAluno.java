@@ -10,7 +10,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import controller.CtrlPrograma;
 import controller.aluno.CtrlAbstratoAluno;
 import viewer.JanelaAbstrata;
 
@@ -41,8 +40,8 @@ public class JanelaAluno extends JanelaAbstrata {
 		JButton btnCadastrar = new JButton("Cadastrar Aluno");
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CtrlPrograma ctrl = (CtrlPrograma)getCtrl();
-				ctrl.iniciarIncluirAluno();
+				JanelaIncluirAluno meuViewer = new JanelaIncluirAluno(null, false);
+				meuViewer.setVisible(true);
 			}
 		});
 		btnCadastrar.setBounds(41, 28, 156, 74);

@@ -10,20 +10,22 @@ import javax.persistence.Query;
 
 import model.Disciplina;
 
-@NamedQuery(name="Disciplina.idDisciplina", query = "SELECT d FROM Disciplina d WHERE d.idDisciplina = :idDepartamento")
+@NamedQuery(name = "Disciplina.idDisciplina", query = "SELECT d FROM Disciplina d WHERE d.idDisciplina = :idDepartamento")
 public class DaoDisciplina {
-	
+
+	// ATRIBUTOS
 	private static EntityManager entityManager = CtrlPrograma.getEntityManager();
-	
+
 	// METODOS
 	public DaoDisciplina() {
 	}
-	
+
 	/*
 	 * @param d
-	 * @return 
-	 * */
-	public boolean incluir(Disciplina d) {		
+	 * 
+	 * @return
+	 */
+	public boolean incluir(Disciplina d) {
 		entityManager.getTransaction().begin();
 		try {
 			entityManager.persist(d);
@@ -58,21 +60,21 @@ public class DaoDisciplina {
 		entityManager.getTransaction().commit();
 		return true;
 	}
-	
+
 	public Disciplina consultarDisciplinaPorID(int idDisciplina) {
 		Query query = entityManager.createQuery("SELECT d FROM Disciplina d");
 		query.setParameter("idDisciplina", idDisciplina);
-		List<Disciplina> resultado  = query.getResultList();
-		if(resultado != null && resultado.size() > 0)
+		List<Disciplina> resultado = query.getResultList();
+		if (resultado != null && resultado.size() > 0)
 			return resultado.get(0);
 		return null;
 	}
-	
+
 	public static Disciplina[] consultarDisciplinaTodos() {
 		Query query = entityManager.createNamedQuery("Disciplina.all");
-		List<Disciplina> resultado  = query.getResultList();
+		List<Disciplina> resultado = query.getResultList();
 		Disciplina[] retorno = new Disciplina[resultado.size()];
-		for(int i = 0; i < resultado.size(); i++)
+		for (int i = 0; i < resultado.size(); i++)
 			retorno[i] = resultado.get(i);
 		return retorno;
 	}
