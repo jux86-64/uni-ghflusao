@@ -6,8 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.PersistenceException;
-import javax.persistence.TypedQuery;
-
+import javax.persistence.Query;
 import controller.CtrlPrograma;
 import model.Turma;
 
@@ -66,7 +65,7 @@ public class DaoTurma {
 	}
 	
 	public Turma consultarTurmaPorID(int idTurma) {
-		TypedQuery<Turma> query = entityManager.createQuery("SELECT t FROM Turma t WHERE t.idTurma = :idTurma", Turma.class);
+		Query query = entityManager.createQuery("SELECT t FROM Turma t");
 		query.setParameter("idTurma", idTurma);
 		List<Turma> resultado = query.getResultList();
 		if(resultado != null && resultado.size() > 0)

@@ -144,6 +144,7 @@ public class CtrlPrograma extends CtrlAbstrato {
 		try (Connection conn = DriverManager.getConnection("jdbc:mariadb://localhost/", "root", "12345")) {
 			// create a Statement
 			try (Statement stmt = conn.createStatement()) {
+				new CtrlPrograma();
 				// execute query
 				try (ResultSet rs = stmt.executeQuery("SELECT 'Hello World!'")) {
 					// position result to first
@@ -152,6 +153,6 @@ public class CtrlPrograma extends CtrlAbstrato {
 				}
 			}
 		}
-		new CtrlPrograma();
+		
 	}
 }

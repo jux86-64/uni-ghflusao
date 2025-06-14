@@ -10,7 +10,8 @@ import javax.swing.border.EmptyBorder;
 
 import controller.CtrlAbstrato;
 import controller.CtrlPrograma;
-import viewer.aluno.JanelaIncluirAluno;
+import controller.aluno.CtrlAbstratoAluno;
+import viewer.aluno.JanelaAluno;
 import viewer.cursa.JanelaIncluirCursa;
 import viewer.departamento.JanelaIncluirDepartamento;
 import viewer.disciplina.JanelaIncluirDisciplina;
@@ -34,15 +35,15 @@ public class JanelaPrincipal extends JanelaAbstrata {
 		setBounds(100, 100, 450, 430);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JButton btnAluno = new JButton("Aluno");
 		btnAluno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JanelaIncluirAluno meuViewer = new JanelaIncluirAluno(null, false);
-				meuViewer.setVisible(true);
+				CtrlAbstratoAluno c = null;
+				JanelaAluno janela = new JanelaAluno(c,false);
+				janela.apresentar();
 			}
 		});
 		
